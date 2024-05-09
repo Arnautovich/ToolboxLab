@@ -174,7 +174,7 @@ class equation:
         the dataframe containing the properties.
         '''
         index = self.rxn_obj.index("->")
-        columns = ['Stoichiometry','CanonicalSMILES','MolecularWeight', 'XLogP', 'IUPACName', 'MonoisotopicMass', 'HBondDonorCount', 'HBondAcceptorCount']
+        columns = ['Stoichiometry','MolecularWeight','IUPACName','CanonicalSMILES', 'MonoisotopicMass', 'HBondDonorCount', 'HBondAcceptorCount','XLogP']
 
         dataframe = pd.DataFrame([self.rxn_obj[0].properties], columns = columns)
 
