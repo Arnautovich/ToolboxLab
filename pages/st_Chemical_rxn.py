@@ -7,6 +7,9 @@ reac = st.text_input("Please enter your reaction as follow [list of reactants] -
 rxn = equation(reac)
 
 st.image(rxn.draw_reaction())
-st.dataframe(rxn.get_reaction_properties())
 
-# description du tableau + input par default dans box + midifier text input
+tog1 = st.toggle("View products properties", help="")
+if tog1:
+    st.dataframe(rxn.get_reaction_properties())
+
+# description du tableau + input par default dans box + modifier text input
