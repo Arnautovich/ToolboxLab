@@ -102,7 +102,7 @@ def distillation(F:float, xD:float, R:float, z:float, q:float, alpha:float, xB:f
     The function returns the number of stages required for the separation and the plot of the McCabe-Thiele diagram.
     '''
     
-    if not isinstance(F, (int, float)) or not isinstance(D, (int, float)) or not isinstance(xD, (int, float)) or not isinstance(R, (int, float)) or not isinstance(z, (int, float)) or not isinstance(q, (int, float)) or not isinstance(alpha, (int, float)):
+    if not isinstance(F, (int, float)) or not isinstance(xD, (int, float)) or not isinstance(R, (int, float)) or not isinstance(z, (int, float)) or not isinstance(q, (int, float)) or not isinstance(alpha, (int, float)):
         raise TypeError('The inputs must be numbers')
 
     if xD >= 1 or z >= 1:
@@ -111,10 +111,20 @@ def distillation(F:float, xD:float, R:float, z:float, q:float, alpha:float, xB:f
         raise ValueError('xD must be greater than 0')
     if R <= 0:
         raise ValueError('R must be greater than 0')
-    if D >= F:
-        raise ValueError('D must be less than F')
     if xD <= z:
         raise ValueError('xD must be greater than z')
+    
+    if D is not None:
+        if not isinstance(D, (int, float)):
+            raise TypeError('D must be a number')
+        if D >= F:
+            raise ValueError('D must be less than F')
+
+    if xB is not None:
+        if not isinstance(xB, (int, float)):
+            raise TypeError('xB must be a number')
+        if xB >= xD or xB >= z and xB is not None:
+            raise ValueError('xB must be greated than z and xD')
 
     
 
