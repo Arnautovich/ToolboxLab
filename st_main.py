@@ -39,3 +39,5 @@ with col1:
 
     
 
+with col2:
+    st.page_link("pages/st_Chemical_rxn.py", "Your chemical reaction")

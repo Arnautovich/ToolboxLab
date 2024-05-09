@@ -17,7 +17,7 @@ with col2:
     xD = st.slider("Select xD :", min_value=z+0.05, max_value=1.0, value=0.9, step=0.05, help="Fraction of product in the distillate")
     R = st.slider("Select R :", min_value=0.0, max_value=1.0, value=0.5, step=0.1, help="Reflux ratio [L/D]")
     if tog:
-        xB = st.slider("Select xB :", min_value=0.0, max_value=1.0, value=0.1, step=0.1, help="Fraction of product in bottom flow")
+        xB = st.slider("Select xB :", min_value=0.0, max_value=1.0, value=0.1, step=0.05, help="Fraction of product in bottom flow")
     
 
 number, fig = distillation(F=F, xD=xD, R=R, z=z, q=q, alpha=alpha, xB=xB, D=D)
