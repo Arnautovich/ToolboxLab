@@ -1,0 +1,17 @@
+
+
+[project]
+name = "Toolbox"
+authors = [
+    {name = "Arnau Casalprim", email = "arnau.casalprimperez@epfl.ch"},
+    {name = "Nicolas Jenni", email = "nicolas.jenni@epfl.,ch"},
+    {name = "Bruno Gonçañves", email = "bruno.goncalvesoliveria@epfl.ch"},
+]
+description = " Preparation Lab toolbox"
+version = "0.0.1"
+readme = "README.md"
+requires-python = ">=3.7"
+dependencies = [
+    "requests > 2.26.0",
+    "pandas"
+]
