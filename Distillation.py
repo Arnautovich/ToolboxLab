@@ -87,32 +87,19 @@ def feed_line(q:float,z:float,x:Union[np.ndarray, float]) -> float:
         
     return -q/(1-q)*x + z/(1-q)
 
-<<<<<<< HEAD
 def distillation(F:float, xD:float, R:float, z:float, q:float, alpha:float, xB:float=None, D:float = None) -> int:
     '''
     This function plots the McCabe-Thiele diagram for a binary distillation column. The inputs are the following:
     F: Total flow rate of the feed (kmol/h)
-=======
-def distillation(F:float, D:float, xD:float, R:float, z:float, q:float, alpha:float) -> int:
-    '''
-    This function plots the McCabe-Thiele diagram for a binary distillation column. The inputs are the following:
-    F: Total flow rate of the feed (kmol/h)
-    D: Distillate flow rate (kmol/h)
->>>>>>> 43b36ef754de7b90d1794faf75466e17f82e424d
     xD: Mole fraction of the light component in the distillate
     R: Reflux ratio
     z: Mole fraction of the light component in the feed
     q: Feed quality
     alpha: Relative volatility of the light component with respect to the heavy component
-<<<<<<< HEAD
     xB: Mole fraction of the light component in the bottoms
     D: Distillate flow rate (kmol/h)
 
     The function returns the number of stages required for the separation and the plot of the McCabe-Thiele diagram.
-=======
-
-    The function returns the number of stages required for the separation.
->>>>>>> 43b36ef754de7b90d1794faf75466e17f82e424d
     '''
     
     if not isinstance(F, (int, float)) or not isinstance(D, (int, float)) or not isinstance(xD, (int, float)) or not isinstance(R, (int, float)) or not isinstance(z, (int, float)) or not isinstance(q, (int, float)) or not isinstance(alpha, (int, float)):
@@ -152,11 +139,7 @@ def distillation(F:float, D:float, xD:float, R:float, z:float, q:float, alpha:fl
     x_inter = fsolve(lambda x: enriching_operating_line(R, x, xD) - feed_line(q, z, x), xB)
     x_inter_eq = fsolve(lambda x: equilibrium_line(alpha, x) - enriching_operating_line(R, x, xD), 0)
 
-<<<<<<< HEAD
     if x_inter_eq > x_inter or x_inter_eq < xB:
-=======
-    if x_inter_eq > x_inter:
->>>>>>> 43b36ef754de7b90d1794faf75466e17f82e424d
         raise ValueError('No solution')
     
     x_old = x_new = xD
@@ -195,4 +178,4 @@ def distillation(F:float, D:float, xD:float, R:float, z:float, q:float, alpha:fl
     ax.set_ylim(0,1)
     plt.minorticks_on()
 
-    return i-1
+    return i-1, fig
