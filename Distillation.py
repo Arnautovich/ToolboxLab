@@ -136,8 +136,8 @@ def distillation(F:float, xD:float, R:float, z:float, q:float, alpha:float, xB:f
 
     x_label(ax, xD, '$x_D$')
 
-    x_inter = fsolve(lambda x: enriching_operating_line(R, x, xD) - feed_line(q, z, x), xB)
-    x_inter_eq = fsolve(lambda x: equilibrium_line(alpha, x) - enriching_operating_line(R, x, xD), 0)
+    x_inter = fsolve(lambda x: enriching_operating_line(R, x, xD) - feed_line(q, z, x), xB)[0]
+    x_inter_eq = fsolve(lambda x: equilibrium_line(alpha, x) - enriching_operating_line(R, x, xD), 0)[0]
 
     if x_inter_eq > x_inter or x_inter_eq < xB:
         raise ValueError('No solution')
@@ -146,7 +146,7 @@ def distillation(F:float, xD:float, R:float, z:float, q:float, alpha:float, xB:f
     i = 1
     while x_old > xB:
         ahline(ax, x_old, 0, x_new)
-        x_new = fsolve(lambda x: equilibrium_line(alpha, x)-x_old, x_old)
+        x_new = fsolve(lambda x: equilibrium_line(alpha, x)-x_old, x_old)[0]
 
         avline(ax, x_new, 0, equilibrium_line(alpha, x_new))
         x_lab = '$x_'+str(i)+'$'
