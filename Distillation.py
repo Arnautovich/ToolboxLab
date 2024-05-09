@@ -118,8 +118,9 @@ def distillation(F:float, xD:float, R:float, z:float, q:float, alpha:float, xB:f
 
     
 
-    B = F-D
-    xB = (z*F-xD*D)/B
+    if xB is None:
+        B = F-D
+        xB = (z*F-xD*D)/B
     
     x = np.linspace(0,1,1000)
 
