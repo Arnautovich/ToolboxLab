@@ -1,5 +1,5 @@
 import streamlit as st
-from chemical_rxn import equation
+from Toolbox.chemical_rxn import equation
 
 col1, col2 = st.columns(2)
 

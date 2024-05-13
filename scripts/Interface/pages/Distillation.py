@@ -1,5 +1,11 @@
 import streamlit as st
-from Distillation import distillation 
+import sys 
+sys.path.insert(0,"../../../src/Toolbox")
+from Toolbox import Distillation as ds
+
+# patch dist : "C:\Users\Bruno\Desktop\Fiches EPFL\Ba4\Projet ppchem\Toolbox\src\Toolbox\Distillation.py"
+# path 
+
 
 col1, col2 = st.columns(2)
 
@@ -20,7 +26,7 @@ with col2:
         xB = st.slider("Select xB :", min_value=0.0, max_value=1.0, value=0.1, step=0.05, help="Fraction of product in bottom flow")
     
 
-number, fig = distillation(F=F, xD=xD, R=R, z=z, q=q, alpha=alpha, xB=xB, D=D)
+number, fig = ds.distillation(F=F, xD=xD, R=R, z=z, q=q, alpha=alpha, xB=xB, D=D)
 
 st.write(f"The number of distillation states needed are {number}")
 fig 
