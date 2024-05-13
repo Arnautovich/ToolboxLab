@@ -1,0 +1,26 @@
+
+[project]
+name = "Toolbox"
+description = "Preparation Lab toolbox"
+version = "0.0.1"
+readme = "README.md"
+dependencies = [
+    "requests > 2.26.0",
+    "pandas",
+]
+license = {file = "LICENSE"}
+
+[[project.authors]]
+name = "Arnau Casalprim"
+email = "arnau.casalprimperez@epfl.ch"
+
+[[project.authors]]
+name = "Nicolas Jenni"
+email = "nicolas.jenni@epfl.ch"
+
+[[project.authors]]
+name = "Bruno Gonçalves"
+email = "bruno.goncalvesoliveira@epfl.ch"
+
+[project.urls]
+Repository = "https://github.com/Arnautovich/Toolbox.git"
