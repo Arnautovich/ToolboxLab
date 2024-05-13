@@ -10,7 +10,6 @@ requires-python = ">=3.10.14"
 license = {file = "LICENSE"}
 description = "Toolbox for applied chemistry"
 dependencies = [
-    "numpy",
     "matplotlib",
     "rdkit",
     "pubchempy",

@@ -78,10 +78,11 @@ def strongbase (cb:float) -> float:
     return -np.log10(-0.5*cb + np.sqrt(0.25*cb**2 + 10**(-14)))
 
 def weakacid () -> float:
+    
     return 
 
-# changer deux première fonction par buffer 
-print("pH buffer : ", bufferpH(0.4, 1, Kb=1.8*10**(-5)))
-print("concentration buffer :", bufferconc(9.65, 0.4, None, Kb=1.8*10**(-5)))
-print("pH acide fort",strongacid(0.234))
-print("pH base forte",strongbase(2*0.013))
+if __name__ == "__main__" :
+    print("pH buffer : ", bufferpH(0.4, 1, Kb=1.8*10**(-5)))
+    print("concentration buffer :", bufferconc(9.65, 0.4, None, Kb=1.8*10**(-5)))
+    print("pH acide fort",strongacid(0.234))
+    print("pH base forte",strongbase(2*0.013))
