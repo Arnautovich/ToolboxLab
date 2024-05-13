@@ -61,3 +61,4 @@ with col2:
     #Stoitometry of chemical reaction and properties of the reactants
     st.markdown("<p style='text-align: center;'>This app calculates the stoichiometry of a chemical reaction and the properties of the reactants/products.</p>", unsafe_allow_html=True)
     
+    
