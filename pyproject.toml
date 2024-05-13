@@ -25,7 +25,7 @@ authors = [
     {name = "Bruno Gonçalves Oliveira", email = "bruno.goncalvesoliveira@epfl.ch"}
 ]
 
-dynamic = ["version]
+dynamic = ["version"]
 
 [project.urls]
 source = "https://github.com/Arnautovich/Toolbox.git"
