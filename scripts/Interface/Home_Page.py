@@ -36,7 +36,6 @@ with col1:
     st.markdown("<p style='text-align: center;'>This app calculates the number of distillation states needed for a binary distillation column.</p>", unsafe_allow_html=True)
     
 
-
     
 
 with col2:
