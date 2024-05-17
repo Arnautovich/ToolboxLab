@@ -3,11 +3,11 @@ import numpy as np
 def bufferpH (ca:float=1, cb:float=1, pka:float=None, Ka:float=None, Kb:float=None) -> float:
     '''
     This function calculates the pH of a buffer solution of a weak acid/base couple in water, 
-    knowing the concentrations of compounds and either the pKa, Ka or Kb
+    by knowing the concentrations of compounds and either the pKa, Ka or Kb
 
     input : 
-    ca: The concentration of acid [AH]
-    cb: The concentration of the conjugate base [A-]
+    ca: The concentration of acid [AH] (mol/L)
+    cb: The concentration of the conjugate base [A-] (mol/L)
     pka: The pKa of the couple
     *
     Ka: Can be used instead of the pka, the acidity constant of the couple
@@ -28,12 +28,12 @@ def bufferpH (ca:float=1, cb:float=1, pka:float=None, Ka:float=None, Kb:float=No
 def bufferconc (pH:float=7, ca:float=None, cb:float=None, pka:float=None, Ka:float=None, Kb:float=None) -> float:
     '''
     This function calculates the concentration of one compound, in a buffer solution of a weak acid/base couple in water, needed to achieve the pH indicated
-    knowing the pH, the concentration of the conjugate compound and either the pKa, Ka or Kb
+    by knowing the pH, the concentration of the conjugate compound and either the pKa, Ka or Kb
 
     input:
     pH of the buffer solution
-    ca: The concentration of acid [HA]
-    cb: The concentration of base [A-]
+    ca: The concentration of acid [HA] (mol/L)
+    cb: The concentration of base [A-] (mol/L)
     pka: The pKa of the couple
     *
     Ka: Can be used instead of the pka, the acidity constant of the couple
@@ -61,7 +61,7 @@ def strongacidpH (ca:float) -> float:
     This function calculates the pH of a strong acid (pKa <= -1) in water
 
     input:
-    ca: The concentration of acid [HA]
+    ca: The concentration of acid [HA] (mol/L)
 
     output:
     The pH of the solution as float
@@ -74,7 +74,7 @@ def strongbasepH (cb:float) -> float:
     This function calculates the pH of a strong base (pKa <= -1) in water
 
     input:
-    cb: The concentration of base [B-]
+    cb: The concentration of base [B-] (mol/L)
 
     output:
     The pH of the solution as float
@@ -97,7 +97,7 @@ def strongacidconc (pH:float) -> float:
 
 def strongbaseconc (pH:float=None, pOH:float=None) -> float:
     '''
-    This function calculates the concentration (mol/L) of strong base (pKa >= 14) needed to achieve the pH indicated, in water
+    This function calculates the concentration of strong base (pKa >= 14) needed to achieve the pH indicated, in water
 
     input:
     pH wanted
@@ -116,10 +116,11 @@ def strongbaseconc (pH:float=None, pOH:float=None) -> float:
 
 def weakacidpH (ca:float, Ka:float=None, pka:float=None) -> float:
     '''
-    This function calculates the pH of a weak acid in water
+    This function calculates the pH of a weak acid in water, 
+    by knowing the concentration of the acid and either its Ka or pKa
 
     input:
-    ca: The concentration of acid [HA]
+    ca: The concentration of acid [HA] (mol/L)
     Ka: The acidity constant of the acid
     *
     pka: Can be used instead of Ka, the pKa of the acid
@@ -138,10 +139,11 @@ def weakacidpH (ca:float, Ka:float=None, pka:float=None) -> float:
     
 def weakbasepH (cb:float, Ka:float=None, pka:float=None, Kb:float=None) -> float:
     '''
-    This function calculates the pH of a weak base in water
+    This function calculates the pH of a weak base in water,
+    by knowing the concentration of base and either its Ka, pKa or Kb
 
     input:
-    cb: The concentration of base [B-]
+    cb: The concentration of base [B-] (mol/L)
     Ka: The acidity constant of the base 
     *
     pka: Can be used instead of Ka, the pKa of the base 
@@ -164,7 +166,8 @@ def weakbasepH (cb:float, Ka:float=None, pka:float=None, Kb:float=None) -> float
 
 def weakacidconc (pH:float, Ka:float=None, pka:float=None) -> float:
     '''
-    This function calculates the concentration of weak acid needed to achieve the pH desired in water
+    This function calculates the concentration of weak acid needed to achieve the pH desired in water,
+    by knowing the pH and either the Ka or pKa 
 
     input:
     pH of the solution
@@ -181,7 +184,8 @@ def weakacidconc (pH:float, Ka:float=None, pka:float=None) -> float:
 
 def weakbaseconc (pH:float, Kb:float=None, pka:float=None, Ka:float=None) -> float:
     '''
-    This function calculates the concentration of weak base needed to achieve the pH desired in water
+    This function calculates the concentration of weak base needed to achieve the pH desired in water,
+    by knowing the pH and either the Kb, pKa or Ka
 
     input:
     pH of the solution
@@ -201,8 +205,6 @@ def weakbaseconc (pH:float, Kb:float=None, pka:float=None, Ka:float=None) -> flo
     return float((cOH-10**(-7))/Kb*(cOH + Kb))
 
 
-# pKa < -2 => strong acid 
-# modifier descriptions buffer 
 # faire plus de test(vérifier que return de fct correcte) mais normalement c'est correcte 
 
 # FAIRE condition ou fct ne marche pas !
