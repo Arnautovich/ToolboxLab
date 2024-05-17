@@ -22,7 +22,7 @@ class elements:
         '''
         try:
             compound = pcp.get_compounds(name, 'name')
-            self.properties = pcp.get_properties(['canonical_smiles','MolecularWeight', 'XLogP', 'IUPACName', 'exact_mass', 'monoisotopic_mass', 'h_bond_acceptor_count', 'h_bond_donor_count'], name, 'name')[0]
+            self.properties = pcp.get_properties(['canonical_smiles','MolecularWeight', 'XLogP', 'IUPACName', 'monoisotopic_mass', 'h_bond_acceptor_count', 'h_bond_donor_count'], name, 'name')[0]
             self.smile = compound[0].canonical_smiles
             self.mol = rdkit.Chem.MolFromSmiles(self.smile)
             self.name = name
@@ -52,7 +52,9 @@ class elements:
         This function adds the stoichiometry of the element to the properties dictionary. The input parameters are:
         - coef: float: the stoichiometry of the element
         '''
-        self.properties['Stoichiometry'] = coef
+
+        up_dic = {'Stoichiometry': coef}
+        self.properties = {**up_dic, **self.properties}
 
 
 class equation:
@@ -172,7 +174,7 @@ class equation:
         the dataframe containing the properties.
         '''
         index = self.rxn_obj.index("->")
-        columns = ['CanonicalSMILES','MolecularWeight', 'XLogP', 'IUPACName', 'ExactMass', 'MonoisotopicMass', 'HBondDonorCount', 'HBondAcceptorCount', 'Stoichiometry']
+        columns = ['Stoichiometry','MolecularWeight','IUPACName','CanonicalSMILES', 'MonoisotopicMass', 'HBondDonorCount', 'HBondAcceptorCount','XLogP']
 
         dataframe = pd.DataFrame([self.rxn_obj[0].properties], columns = columns)
 

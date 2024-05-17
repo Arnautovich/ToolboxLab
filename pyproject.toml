@@ -1,4 +1,5 @@
 
+<<<<<<< HEAD
 
 [project]
 name = "Toolbox"
@@ -15,3 +16,37 @@ dependencies = [
     "requests > 2.26.0",
     "pandas"
 ]
+=======
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "Toolbox"
+readme = "README.md"
+requires-python = ">=3.10.14"
+license = {file = "LICENSE"}
+description = "Toolbox for applied chemistry"
+dependencies = [
+    "matplotlib",
+    "rdkit",
+    "pubchempy",
+    "pandas",
+    "scipy",
+    "typing",
+]
+
+authors = [
+    {name = "Arnau Casalprim", email = "arnau.casalprimperez@epfl.ch"},
+    {name = "Nicolas Jenni", email = "nicolas.jenni@epfl.ch"},
+    {name = "Bruno Gonçalves Oliveira", email = "bruno.goncalvesoliveira@epfl.ch"}
+]
+
+dynamic = ["version"]
+
+[project.urls]
+source = "https://github.com/Arnautovich/Toolbox.git"
+
+[tool.hatch.version]
+path = "src/Toolbox/__init__.py"
+>>>>>>> d83f7c47d5eeaee7422ed558a48acb5eb061d4ef
