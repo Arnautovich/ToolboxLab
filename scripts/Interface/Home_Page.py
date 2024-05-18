@@ -37,6 +37,7 @@ with col1:
     
 
     
+    
 
 with col2:
     st.image(path_img2, use_column_width=True)
