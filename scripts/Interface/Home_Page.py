@@ -12,7 +12,7 @@ col1, col2 = st.columns(2)
 app_path = 'http://localhost:8501'
 page_file_path1 = 'pages/Distillation.py'
 page_file_path2 = 'pages/Chemical_Reaction.py'
-page_file_path3 = 'pages/pH_Calculations.py'
+page_file_path3 = 'pages/pH_Calculator.py'
 
 page1 = page_file_path1.split('/')[1][0:-3]  # get "page1"
 page2 = page_file_path2.split('/')[1][0:-3]  # get "page2"
