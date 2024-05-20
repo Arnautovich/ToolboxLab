@@ -19,7 +19,7 @@ def resolve_name_to_cas(molecule_name):
     
 
 def clausius_clapeyron_enthalpy (Pressure,molecule_name):
-#P in bar
+# P in bar
 # T in K
     CASRN = resolve_name_to_cas(molecule_name)
    
