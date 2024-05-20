@@ -32,7 +32,7 @@ pip install .
 
 ## Usage
 ### Distillation
-This function is used to determine the number of stages required for the give sepration properties. Example of use:
+This function is used to determine the number of stages required for the give separtion properties. Example of use:
 
 3 stages
 
