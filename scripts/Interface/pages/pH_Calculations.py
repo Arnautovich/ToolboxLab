@@ -19,7 +19,7 @@ if comp == "Strong acid" and val == "pH":
     st.write(f"The pH calculated is {pH}")
 
 elif comp == "Strong acid" and val == "Concentration":
-    
+    ca = 
 
 if __name__ == "__main__":
     st.write(comp)
