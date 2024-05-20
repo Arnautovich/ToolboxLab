@@ -14,11 +14,13 @@ page_file_path1 = 'pages/Distillation.py'
 page_file_path2 = 'pages/Chemical_Reaction.py'
 page_file_path3 = 'pages/pH_Calculator.py'
 page_file_path4 = 'pages/Liquid-Liquid_Extraction.py'
+page_file_path5 = 'pages/Boiling_Point_at_new_Pressure.py'
 
 page1 = page_file_path1.split('/')[1][0:-3]  # get "page1"
 page2 = page_file_path2.split('/')[1][0:-3]  # get "page2"
 page3 = page_file_path3.split('/')[1][0:-3]
 page4 = page_file_path4.split('/')[1][0:-3]
+page5 = page_file_path5.split('/')[1][0:-3]
 
 with col1:
     st.image(path_img1, use_column_width=True)
@@ -44,7 +46,24 @@ with col1:
 
     st.markdown(f'''<h3 style='text-align: center;'><a href="{app_path}/{page3}" target="_self">pH Calculator</a></h3>''',
     unsafe_allow_html=True)
-    #remove the blue color and underline of the link
+    
+    st.markdown(
+        '''
+        <style>
+        a {
+            text-decoration: none;
+            color: red;
+        }
+        </style>
+        ''', unsafe_allow_html=True
+    )
+    st.markdown("description", unsafe_allow_html=True)
+
+    st.image(path_img3, use_column_width=True)
+
+    st.markdown(f'''<h3 style='text-align: center;'><a href="{app_path}/{page3}" target="_self">Boiling Point at new Pressure</a></h3>''',
+    unsafe_allow_html=True)
+    
     st.markdown(
         '''
         <style>
