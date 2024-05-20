@@ -121,7 +121,7 @@ def weakacidpH (ca:float, Ka:float=None, pka:float=None) -> float:
 
     input:
     ca: The concentration of acid [HA] (mol/L)
-    Ka: The acidity constant of the acid
+    Ka: The acidity constant of the acid \n
     *
     pka: Can be used instead of Ka, the pKa of the acid
 
@@ -189,7 +189,7 @@ def weakbaseconc (pH:float, Kb:float=None, pka:float=None, Ka:float=None) -> flo
 
     input:
     pH of the solution
-    Kb: The basicity constant of the compound
+    Kb: The basicity constant of the compound 
     *
     pka: Can be used instead of the Kb, the pKa of the compound
     Ka: Can be used instead of the Kb, the acidity constant of the compound
