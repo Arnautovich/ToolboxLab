@@ -1,6 +1,8 @@
 
 import requests
 import numpy as np
+import chemicals 
+
 def resolve_name_to_cas(molecule_name):
     
         # Construct the URL for the CIR service
@@ -17,8 +19,6 @@ def resolve_name_to_cas(molecule_name):
     
 
 
-
-import chemicals 
 def clausius_clapeyron_enthalpy (Pressure,STR):
 #P in bar
 # T in K
