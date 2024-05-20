@@ -166,4 +166,4 @@ cython_debug/
 *.DS_Store
 
 # jupyter checkpoint
-*.ipynb_checkpoints
+.ipynb_checkpoints
