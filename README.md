@@ -1,4 +1,8 @@
-# Toolbox [![alt text](https://img.shields.io/badge/Python-14354C?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org)
+# Toolbox 
+
+[![alt text](https://img.shields.io/badge/Python-14354C?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org)
+[![open an issue](https://custom-icon-badges.demolab.com/badge/-Open%20Issue-palegreen?style=for-the-badge&logoColor=black&logo=issue-opened)](https://github.com/Arnautovich/Toolbox/issues)
+[![license](https://custom-icon-badges.demolab.com/github/license/denvercoder1/custom-icon-badges?logo=law&logoColor=white)](https://github.com/Arnautovich/Toolbox/blob/main/LICENSE)
 
 ## Overview
 
@@ -46,4 +50,4 @@ Then go to the directory where you cloned the repository and lunch the **run.py*
 This project is licensed under the **MIT License** - see the LICENSE file for details.
 
 ## Contact
-For any questions or issues, please open an issue on GitHub.
+For any questions or issues, please open an issue on GitHub[![open an issue](https://custom-icon-badges.demolab.com/badge/-Open%20Issue-palegreen?style=for-the-badge&logoColor=black&logo=issue-opened)](https://github.com/Arnautovich/Toolbox/issues)
