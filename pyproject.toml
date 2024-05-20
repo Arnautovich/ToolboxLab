@@ -1,22 +1,4 @@
 
-<<<<<<< HEAD
-
-[project]
-name = "Toolbox"
-authors = [
-    {name = "Arnau Casalprim", email = "arnau.casalprimperez@epfl.ch"},
-    {name = "Nicolas Jenni", email = "nicolas.jenni@epfl.,ch"},
-    {name = "Bruno Gonçañves", email = "bruno.goncalvesoliveria@epfl.ch"},
-]
-description = " Preparation Lab toolbox"
-version = "0.0.1"
-readme = "README.md"
-requires-python = ">=3.7"
-dependencies = [
-    "requests > 2.26.0",
-    "pandas"
-]
-=======
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
@@ -49,4 +31,3 @@ source = "https://github.com/Arnautovich/Toolbox.git"
 
 [tool.hatch.version]
 path = "src/Toolbox/__init__.py"
->>>>>>> d83f7c47d5eeaee7422ed558a48acb5eb061d4ef
