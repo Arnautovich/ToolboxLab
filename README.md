@@ -31,82 +31,19 @@ pip install .
 ```
 
 ## Usage
-### Distillation
-This function is used to determine the number of stages required for the give separtion properties. Example of use:
+For an example of the utilisation of each function please refer to the jupyter notebook here [Examples](https://github.com/Arnautovich/Toolbox/blob/main/notebooks/project_report.ipynb)
 
-3 stages
-
-This function calculates the number of stages required for a distillation process based on given separation properties. It also generates a McCabe-Thiele diagram to visually represent the stages.
-
-Parameters:
-- F (float): Feed flow rate (mol/hr)
-- R (float): Reflux ratio
-- z (float): Feed composition (mole fraction)
-- q (float): Feed quality (ratio of liquid to total feed)
-- alpha (float): Relative volatility
-- xD (float): Distillate composition (mole fraction)
-- D (float): Distillate flow rate (mol/hr)
-
-Returns:
-- nb_stages (int): Number of stages required
-- fig (matplotlib.figure.Figure): McCabe-Thiele diagram
-Example of Use:
+### Interface
+This project also have an interface based UI to interact with the functions. To lunch the interface make sure you installed **streamlit** package or install it by
 ```
-from Toolbox.Distillation import distillation
-
-nb_stages, fig = distillation(F=100, R=0.5, z=0.5, q=1, alpha=10, xD=0.9, D=50)
-
-print(f'Number of stages required: {nb_stages}')
+pip install streamlit
 ```
-This example calculates that 3 stages are required for the given distillation process. The following McCabe-Thiele diagram is also generated to help visualize the separation process.
-
-<img src="https://github.com/Arnautovich/Toolbox/blob/main/Assets/dist_example.png" width=50% height=50%>
+Then go to the directory where you cloned the repository and lunch the **run.py** file.
 
 
-# Optionally, display the McCabe-Thiele diagram
-import matplotlib.pyplot as plt
-plt.show(fig)
-This example calculates that 3 stages are required for the given distillation process. The McCabe-Thiele diagram is also generated to help visualize the separation process.
-
-# Access properties of reactants and products
-reactants = stoichiometric_data['reactants']
-products = stoichiometric_data['products']
-Acid/Base Calculations
-To calculate the pH or concentration of acids and bases:
-
-python
-Copier le code
-from toolbox import acid_base
-
-# Calculate pH of a solution
-ph = acid_base.calculate_ph(concentration, acid_constant)
-
-# Calculate concentration of an acid or base
-concentration = acid_base.calculate_concentration(ph, acid_constant)
-Liquid-Liquid Extraction (LLE)
-To calculate the number of stages for LLE processes:
-
-python
-Copier le code
-from toolbox import lle
-
-# Calculate number of stages for counter-flow LLE
-counter_flow_stages = lle.calculate_counter_flow_stages(feed_composition, extract_composition, solvent_composition)
-
-# Calculate number of stages for cross-flow LLE
-cross_flow_stages = lle.calculate_cross_flow_stages(feed_composition, extract_composition, solvent_composition)
-Documentation
-
-Comprehensive documentation is available here, including detailed descriptions of each function, input parameters, and examples.
-
-Contributing
-
-Contributions are welcome! Please read the contributing guidelines to get started.
-
-License
+## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
 
-Contact
-
-For any questions or issues, please open an issue on GitHub or contact us at support@example.com.
+## Contact
+For any questions or issues, please open an issue on GitHub.
