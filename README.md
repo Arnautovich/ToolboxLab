@@ -52,7 +52,7 @@ Returns:
 - fig (matplotlib.figure.Figure): McCabe-Thiele diagram
 Example of Use:
 ```
-from Toolbox.Distillation as distillation
+from Toolbox.Distillation import distillation
 
 nb_stages, fig = distillation(F=100, R=0.5, z=0.5, q=1, alpha=10, xD=0.9, D=50)
 
@@ -60,6 +60,7 @@ print(f'Number of stages required: {nb_stages}')
 ```
 This example calculates that 3 stages are required for the given distillation process. The following McCabe-Thiele diagram is also generated to help visualize the separation process.
 
+<img src="https://github.com/Arnautovich/Toolbox/blob/main/Assets/dist_example.png" width=50% height=50%>
 
 
 # Optionally, display the McCabe-Thiele diagram
