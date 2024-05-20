@@ -16,7 +16,7 @@ dependencies = [
     "pandas",
     "scipy",
     "typing",
-    "chemicals",
+    "chemicals"
 ]
 
 authors = [

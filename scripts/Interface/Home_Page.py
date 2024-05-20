@@ -61,7 +61,7 @@ with col1:
 
     st.image(path_img3, use_column_width=True)
 
-    st.markdown(f'''<h3 style='text-align: center;'><a href="{app_path}/{page3}" target="_self">Boiling Point at new Pressure</a></h3>''',
+    st.markdown(f'''<h3 style='text-align: center;'><a href="{app_path}/{page5}" target="_self">Boiling Point at new Pressure</a></h3>''',
     unsafe_allow_html=True)
     
     st.markdown(
