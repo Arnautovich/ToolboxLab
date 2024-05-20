@@ -61,7 +61,7 @@ def operating_line(R:float, x:Union[np.ndarray, float], yN_1:float, E:float, xN:
     '''
     return R/E* x + (yN_1 - R/E * xN)
 
-def lle_counter_flow(R:Union[float,int], E:Union[float,int], x0:float, xN:float, yN_1:float, kD:float) -> Union[float, object]:
+def lle(R:Union[float,int], E:Union[float,int], x0:float, xN:float, yN_1:float, kD:float) -> Union[float, object]:
     '''
     This function plots the liquid-liquid equilibrium diagram for counter-current operation. The input parameters are:
     R: feed/Raffinate flow rate
