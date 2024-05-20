@@ -43,7 +43,7 @@ Then go to the directory where you cloned the repository and lunch the **run.py*
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the **MIT License** - see the LICENSE file for details.
 
 ## Contact
 For any questions or issues, please open an issue on GitHub.
