@@ -24,6 +24,3 @@ number, fig = distillation(F=F, xD=xD, R=R, z=z, q=q, alpha=alpha, xB=xB, D=D)
 
 st.write(f"The number of distillation states needed are {number}")
 fig 
-
-# rajouter help
-# 
