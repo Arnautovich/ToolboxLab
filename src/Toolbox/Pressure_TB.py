@@ -19,10 +19,10 @@ def resolve_name_to_cas(molecule_name):
 
 
 import chemicals 
-def clausius_clapeyron_enthalpy (Pressure,STR):
+def clausius_clapeyron_enthalpy (Pressure,molecule_name):
 #P in bar
 # T in K
-    CASRN = resolve_name_to_cas(STR)
+    CASRN = resolve_name_to_cas(molecule_name)
    
     Liquid_heat_compound = chemicals.reaction.Hfl(CASRN, method=None)
     
