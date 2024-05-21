@@ -59,4 +59,4 @@ def display_pdf_images(molecule_name):
     
 # Example usage
 
-display_pdf_images("aspirin")
+display_pdf_images("Dichloromethane")
