@@ -54,7 +54,8 @@ def display_pdf_images(molecule_name):
     for i, image in enumerate(images):
         # Display the image
         images_list.append(image)
-    merge_images_vertically(images_list).show()
+    
+    return merge_images_vertically(images_list)
     
 # Example usage
 

@@ -16,7 +16,8 @@ dependencies = [
     "pandas",
     "scipy",
     "typing",
-    "chemicals"
+    "chemicals",
+    "pdf2image"
 ]
 
 authors = [
