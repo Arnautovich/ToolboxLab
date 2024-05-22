@@ -6,6 +6,7 @@ path = Path(__file__).parent
 path_img1 = str(path) + '/images/dist_img.png'
 path_img2 = str(path) + '/images/chem_img.png'
 path_img3 = str(path) + '/images/PH_img.png'
+path_img4 = str(path) + '/images/lle_img.png'
 
 col1, col2 = st.columns(2)
 
@@ -15,7 +16,7 @@ page_file_path2 = 'pages/Chemical_Reaction.py'
 page_file_path3 = 'pages/pH_Calculator.py'
 page_file_path4 = 'pages/Liquid-Liquid_Extraction.py'
 page_file_path5 = 'pages/Boiling_Point_at_new_Pressure.py'
-page_file_path6 = 'pages/Usefull_Functions.py'
+page_file_path6 = 'pages/Useful_Functions.py'
 
 page1 = page_file_path1.split('/')[1][0:-3]  # get "page1"
 page2 = page_file_path2.split('/')[1][0:-3]  # get "page2"
@@ -58,7 +59,7 @@ with col1:
         </style>
         ''', unsafe_allow_html=True
     )
-    st.markdown("description", unsafe_allow_html=True)
+    st.markdown("<p style='text-align: center;'> This app calculates the pH of a solution given some information about the solution.<br />&nbsp;</p>", unsafe_allow_html=True)
 
     st.image(path_img3, use_column_width=True)
 
@@ -75,7 +76,7 @@ with col1:
         </style>
         ''', unsafe_allow_html=True
     )
-    st.markdown("description", unsafe_allow_html=True)
+    st.markdown("<p style='text-align: center;'> This app calculates the boiling point of a liquid at a new pressure.<br />&nbsp;</p>", unsafe_allow_html=True)
     
 
 with col2:
@@ -96,10 +97,10 @@ with col2:
         </style>
         ''', unsafe_allow_html=True)
 
-    #Stoitometry of chemical reaction and properties of the reactants
+    #Stoichiometry of chemical reaction and properties of the reactants
     st.markdown("<p style='text-align: center;'>This app calculates the stoichiometry of a chemical reaction and the properties of the reactants/products.</p>", unsafe_allow_html=True)
     
-    st.image(path_img1, use_column_width=True)
+    st.image(path_img4, use_column_width=True)
 
     st.markdown(f'''<h3 style='text-align: center;'><a href="{app_path}/{page4}" target="_self">Liquid-Liquid Extraction</a></h3>''',
     unsafe_allow_html=True)
@@ -114,7 +115,7 @@ with col2:
         </style>
         ''', unsafe_allow_html=True)
     
-    st.markdown("description", unsafe_allow_html=True)
+    st.markdown("<p style='text-align: center;'>This app calculates the number of stages needed for a liquid-liquid extraction process.<br />&nbsp;</p>", unsafe_allow_html=True)
 
     st.image(path_img3, use_column_width=True)
 
@@ -131,5 +132,5 @@ with col2:
         </style>
         ''', unsafe_allow_html=True)
     
-    st.markdown("description", unsafe_allow_html=True)
+    st.markdown("<p style='text-align: center;'>This app contains some usefull functions for chemical engineering.<br />&nbsp;</p>", unsafe_allow_html=True)
     

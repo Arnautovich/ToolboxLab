@@ -75,7 +75,7 @@ def stripping_operating_line(R:float, xB:float, xD:float, x_inter:float, x:Union
 
     return slope*x + intercept
 
-def feed_line(q:float,z:float,x:Union[np.ndarray, float]) -> float:
+def feed_line(q:float,z:float,x:Union[np.ndarray, float]) -> Union[np.ndarray, float]:
     '''
     This function calculates the feed line. The input parameters are:
     q: feed quality
@@ -87,22 +87,23 @@ def feed_line(q:float,z:float,x:Union[np.ndarray, float]) -> float:
         
     return -q/(1-q)*x + z/(1-q)
 
-def distillation(F:float, xD:float, R:float, z:float, q:float, alpha:float, xB:float=None, D:float = None) -> int:
+def distillation(xD:float, R:float, z:float, q:float, alpha:float, xB:float=None, D:float = None, F:float=None) -> int:
     '''
     This function plots the McCabe-Thiele diagram for a binary distillation column. The inputs are the following:
-    F: Total flow rate of the feed (kmol/h)
+    
     xD: Mole fraction of the light component in the distillate
     R: Reflux ratio
     z: Mole fraction of the light component in the feed
     q: Feed quality
     alpha: Relative volatility of the light component with respect to the heavy component
     xB: Mole fraction of the light component in the bottoms
-    D: Distillate flow rate (kmol/h)
+    D: Distillate flow rate
+    F: Total flow rate of the feed
 
     The function returns the number of stages required for the separation and the plot of the McCabe-Thiele diagram.
     '''
     
-    if not isinstance(F, (int, float)) or not isinstance(xD, (int, float)) or not isinstance(R, (int, float)) or not isinstance(z, (int, float)) or not isinstance(q, (int, float)) or not isinstance(alpha, (int, float)):
+    if not isinstance(xD, (int, float)) or not isinstance(R, (int, float)) or not isinstance(z, (int, float)) or not isinstance(q, (int, float)) or not isinstance(alpha, (int, float)):
         raise TypeError('The inputs must be numbers')
 
     if xD >= 1 or z >= 1:
@@ -114,6 +115,12 @@ def distillation(F:float, xD:float, R:float, z:float, q:float, alpha:float, xB:f
     if xD <= z:
         raise ValueError('xD must be greater than z')
     
+    if F is not None:
+        if not isinstance(F, (int, float)):
+            raise TypeError('The inputs must be numbers')
+        if F <= 0:
+            raise ValueError('F must be greater than 0')
+
     if D is not None:
         if not isinstance(D, (int, float)):
             raise TypeError('D must be a number')
@@ -151,8 +158,6 @@ def distillation(F:float, xD:float, R:float, z:float, q:float, alpha:float, xB:f
     x_inter = fsolve(lambda x: enriching_operating_line(R, x, xD) - feed_line(q, z, x), xB)[0]
     x_inter_eq = fsolve(lambda x: equilibrium_line(alpha, x) - enriching_operating_line(R, x, xD), 0)[0]
 
-    if x_inter_eq > x_inter or x_inter_eq < xB:
-        raise ValueError('No solution')
     
     x_old = x_new = xD
     i = 1
@@ -161,10 +166,10 @@ def distillation(F:float, xD:float, R:float, z:float, q:float, alpha:float, xB:f
         x_new = fsolve(lambda x: equilibrium_line(alpha, x)-x_old, x_old)[0]
 
         avline(ax, x_new, 0, equilibrium_line(alpha, x_new))
-        x_lab = '$x_'+str(i)+'$'
+        x_lab = '$x_{'+str(i)+'}$'
         x_label(ax, x_new, x_lab)
 
-        y_lab = '$y_'+str(i)+'$'
+        y_lab = '$y_{'+str(i)+'}$'
         y_label(ax, equilibrium_line(alpha, x_new), y_lab)
 
         ahline(ax, equilibrium_line(alpha, x_new), 0, x_new)
@@ -176,7 +181,8 @@ def distillation(F:float, xD:float, R:float, z:float, q:float, alpha:float, xB:f
         
         i += 1
         
-
+        if i > 500:
+            raise ValueError('Number of stages exceeds 500. Check the input parameters')
 
     ax.plot(x, x, "k--", linewidth=0.5)
     ax.plot(x, equilibrium_line(alpha, x), label='equilibrium')

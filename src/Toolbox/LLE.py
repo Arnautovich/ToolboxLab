@@ -61,7 +61,7 @@ def operating_line(R:float, x:Union[np.ndarray, float], yN_1:float, E:float, xN:
     '''
     return R/E* x + (yN_1 - R/E * xN)
 
-def lle(R:Union[float,int], E:Union[float,int], x0:float, xN:float, yN_1:float, kD:float) -> Union[float, object]:
+def lle(R:Union[float,int], E:Union[float,int], x0:float, xN:float, yN_1:float, kD:float) -> Union[object,float]:
     '''
     This function plots the liquid-liquid equilibrium diagram for counter-current operation. The input parameters are:
     R: feed/Raffinate flow rate
@@ -85,8 +85,11 @@ def lle(R:Union[float,int], E:Union[float,int], x0:float, xN:float, yN_1:float, 
 
     for key in var.keys():
         if not isinstance(var[key], (int, float)):
-            raise ValueError(f'{key} must be an integer or a float')
-        
+            raise TypeError(f'{key} must be an integer or a float')
+    
+    if x0 >1 or xN > 1 or yN_1 > 1:
+        raise ValueError('Fraction must be less than 1')
+
     if x0 < xN:
             raise ValueError('x0 must be greater than xN')
 
@@ -138,7 +141,7 @@ def lle(R:Union[float,int], E:Union[float,int], x0:float, xN:float, yN_1:float, 
     return fig, i
 
 
-def LLE_cross_flow(R:Union[float,int], E:Union[float,int], x0:float, xN:float, y_in:float, kD:float) -> Union[float, object]:
+def LLE_cross_flow(R:Union[float,int], E:Union[float,int], x0:float, xN:float, y_in:float, kD:float) -> Union[object,float]:
     '''
     This function plots the liquid-liquid equilibrium diagram for cross-flow operation. The input parameters are:
     R: feed/Raffinate flow rate
@@ -164,10 +167,14 @@ def LLE_cross_flow(R:Union[float,int], E:Union[float,int], x0:float, xN:float, y
 
     for key in var.keys():
         if not isinstance(var[key], (int, float)):
-            raise ValueError(f'{key} must be an integer or a float')
+            raise TypeError(f'{key} must be an integer or a float')
         
+    if x0 >1 or xN > 1 or y_in > 1:
+        raise ValueError('Fraction must be less than 1')
+    
     if x0 < xN:
             raise ValueError('x0 must be greater than xN')
+    
     
     fig, ax = plt.subplots()
     xmax = x0+0.05*x0

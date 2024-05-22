@@ -20,6 +20,9 @@ class elements:
         The function raises a ValueError if the element is not found. If it is the case, try to use the english 
         name of the element.
         '''
+        if not isinstance(name, str):
+            raise TypeError("name must be a string")
+        
         try:
             compound = pcp.get_compounds(name, 'name')
             self.properties = pcp.get_properties(['canonical_smiles','MolecularWeight', 'XLogP', 'IUPACName', 'monoisotopic_mass', 'h_bond_acceptor_count', 'h_bond_donor_count'], name, 'name')[0]
@@ -71,7 +74,9 @@ class equation:
         - set_atoms: a set of atoms present in the reaction
         - stoich_coeff: an array containing the stoichiometry of the reaction
         '''
-
+        if not isinstance(rxn_str, str):
+            raise TypeError("rxn_str must be a string")
+        
         self.rxn_tokenized = tokenize(rxn_str)
 
         self.rxn_obj = []
@@ -292,6 +297,7 @@ def gauss_elimination(Y:np.ndarray,x:np.ndarray)->np.ndarray:
                 b[j] += fact*b[i]
         A = permute(A)
 
+
     for i in range(A.shape[0]):
         if A[i,i] < 1e-10 and A[i,i] > -1e-10:
             A[i,i] = 1
@@ -319,8 +325,6 @@ def gauss_elimination(Y:np.ndarray,x:np.ndarray)->np.ndarray:
 
 
 if __name__ == "__main__":
-    rxn = equation("NaOH + HCl -> NaCl + H2O")
-
-    print(rxn.get_reaction_properties())
-    a = rxn.draw_reaction() 
-    a.show()
+    A = np.array([[1, 2, 3], [10, 5, 6], [2,4,6]])
+    B = np.array([0, 0, 0])
+    print(gauss_elimination(A, B))
