@@ -38,7 +38,7 @@ pip install .
 ```
 
 ## Requirements
-Normally when installing the package the required other packages should be automatically installed. If it is not the case make sure that you installed the following packages by typing those commands:
+When installing the Toolbox package, the necessary dependencies should be installed automatically. However, if the dependencies are not installed as expected, please ensure you manually install the following packages by executing the corresponding commands:
 ```
 pip install matplotlib
 pip install rdkit
