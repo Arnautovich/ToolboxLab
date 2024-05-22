@@ -18,7 +18,7 @@ dependencies = [
     "typing",
     "chemicals",
     "pdf2image",
-    "poppler-cpp"
+    "python-poppler"
 ]
 
 authors = [
