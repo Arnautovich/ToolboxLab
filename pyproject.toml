@@ -17,7 +17,8 @@ dependencies = [
     "scipy",
     "typing",
     "chemicals",
-    "pdf2image"
+    "pdf2image",
+    "poppler-cpp"
 ]
 
 authors = [
