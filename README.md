@@ -27,13 +27,13 @@ Three authors contributed to this project:
 ## Installation
 The package **Toolbox** can be easily installed using pip, the package installer for Python. This package requires a Python version newer or equal to version **3.10.14**. Open your terminal or command prompt and run the following command:
 ```
-pip install git+https://github.com/Arnautovich/Toolbox.git
+pip install git+https://github.com/Arnautovich/ToolboxLab.git
 ```
 
 It can also be installed locally.
 ```
 cd /to_dir/
-git clone https://github.com/Arnautovich/Toolbox.git
+git clone https://github.com/Arnautovich/ToolboxLab.git
 pip install .
 ```
 
