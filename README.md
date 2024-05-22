@@ -50,7 +50,7 @@ pip install chemicals
 pip install pdf2image
 ```
 ## Usage
-For an example of the utilisation of each function please refer to the jupyter notebook here [Examples](https://github.com/Arnautovich/Toolbox/blob/main/notebooks/project_report.ipynb)
+For an example of the utilisation of each function please refer to the [jupyter notebook](https://github.com/Arnautovich/Toolbox/blob/main/notebooks/project_report.ipynb)
 
 ### Interface
 This project also have an interface based UI to interact with the functions. To lunch the interface make sure you installed **streamlit** package or install it by
