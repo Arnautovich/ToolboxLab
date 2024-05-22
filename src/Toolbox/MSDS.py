@@ -17,9 +17,8 @@ def resolve_name_to_cas(molecule_name):
     end = response.text.find("," ,start)
     return response.text[start: end]
 
-def merge_images_vertically(image_list):
+def merge_images_vertically(images):
     # Open all images
-    images = image_list
 
     # Find maximum width and total height
     max_width = max(image.width for image in images)
