@@ -25,7 +25,7 @@ Three authors contributed to this project:
 - **Liquid-Liquid Extraction (LLE)**: Calculate the number of stages for both counter-flow and cross-flow LLE processes.
 
 ## Installation
-The package **Toolbox** can be easily installed using pip, the package installer for Python. Open your terminal or command prompt and run the following command:
+The package **Toolbox** can be easily installed using pip, the package installer for Python. This package requires a Python version newer or equal to version **3.10.14**. Open your terminal or command prompt and run the following command:
 ```
 pip install git+https://github.com/Arnautovich/Toolbox.git
 ```
@@ -37,6 +37,18 @@ git clone https://github.com/Arnautovich/Toolbox.git
 pip install .
 ```
 
+## Requirements
+Normally when installing the package the required other packages should be automatically installed. If it is not the case make sure that you installed the following packages by typing those commands:
+```
+pip install matplotlib
+pip install rdkit
+pip install pubchempy
+pip install pandas
+pip install scipy
+pip install typing
+pip install chemicals
+pip install pdf2image
+```
 ## Usage
 For an example of the utilisation of each function please refer to the jupyter notebook here [Examples](https://github.com/Arnautovich/Toolbox/blob/main/notebooks/project_report.ipynb)
 
