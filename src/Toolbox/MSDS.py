@@ -1,5 +1,4 @@
 import requests
-import io
 from pdf2image import convert_from_bytes
 from PIL import Image
 
@@ -58,4 +57,5 @@ def display_pdf_images(molecule_name):
     
 # Example usage
 
-display_pdf_images("Dichloromethane")
+if __name__ == "__main__":
+    display_pdf_images("Dichloromethane")
