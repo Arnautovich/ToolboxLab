@@ -63,7 +63,7 @@ def display_pdf_images(molecule_name, company):
     
     response = requests.get(pdf_url)
     if response.status_code != 200:
-        return 
+        return None
 
     pdf_bytes = response.content
     images = convert_from_bytes(pdf_bytes)
@@ -72,4 +72,6 @@ def display_pdf_images(molecule_name, company):
         images_list.append(image)
     merged_image = merge_images_vertically(images_list)
     if merged_image:
+        print(merged_image)
         return merged_image
+    return None
