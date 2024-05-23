@@ -34,11 +34,11 @@ def merge_images_vertically(images):
 
     return merged_image
 
-def display_pdf_images(molecule_name):
+def display_pdf_images(molecule_name, company):
     images_list = []
     CAS = resolve_name_to_cas(molecule_name)
     # Download the PDF from the URL
-    pdf_url = f"https://www.chemblink.com/MSDS/MSDSFiles/{CAS}Sigma-Aldrich.pdf"
+    pdf_url = f"https://www.chemblink.com/MSDS/MSDSFiles/{CAS}{company}.pdf"
     response = requests.get(pdf_url)
     if response.status_code != 200:
         print(f"Failed to download PDF from {pdf_url}. Status code: {response.status_code}")

@@ -25,7 +25,7 @@ The atom list is: {nbre}
 Usefull properties are:''')
 st.dataframe(prop, width=700)
 
-list_comp = ["Sigma-Aldrich", ]
+list_comp = ["Sigma-Aldrich", ""]
 
 company = st.selectbox("From which company do you want your MSDS sheet ?", list_comp)
 
