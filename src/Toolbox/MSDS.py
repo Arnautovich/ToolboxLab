@@ -2,31 +2,21 @@ import requests
 from pdf2image import convert_from_bytes
 from PIL import Image
 
-
 def resolve_name_to_cas(molecule_name):
-    
-        # Construct the URL for the CIR service
     url = f"https://commonchemistry.cas.org/results?q={molecule_name}"
-
-        # Send a GET request to the CIR service
     response = requests.get(url)
 
     find = "Result: "
-    start=response.text.find(find)+len(find)
-    end = response.text.find("," ,start)
-    return response.text[start: end]
+    start = response.text.find(find) + len(find)
+    end = response.text.find(",", start)
+    return response.text[start:end].strip()
 
-def merge_images_vertically(images):
-    # Open all images
-
-    # Find maximum width and total height
+def merge_images_vertically(image_list):
+    images = image_list
     max_width = max(image.width for image in images)
     total_height = sum(image.height for image in images)
-
-    # Create a new blank image with the maximum width and total height
     merged_image = Image.new("RGB", (max_width, total_height))
 
-    # Paste each image onto the blank image
     y_offset = 0
     for image in images:
         merged_image.paste(image, (0, y_offset))
@@ -37,24 +27,44 @@ def merge_images_vertically(images):
 def display_pdf_images(molecule_name, company):
     images_list = []
     CAS = resolve_name_to_cas(molecule_name)
-    # Download the PDF from the URL
     pdf_url = f"https://www.chemblink.com/MSDS/MSDSFiles/{CAS}{company}.pdf"
+    
     response = requests.get(pdf_url)
     if response.status_code != 200:
-        print(f"Failed to download PDF from {pdf_url}. Status code: {response.status_code}")
-        return
+        return False
 
-    # Convert the downloaded PDF bytes to images
     pdf_bytes = response.content
     images = convert_from_bytes(pdf_bytes)
 
-    # Display each image
     for i, image in enumerate(images):
-        # Display the image
         images_list.append(image)
-    
-    return merge_images_vertically(images_list)
-    
+    merged_image = merge_images_vertically(images_list)
+    if merged_image:
+        merged_image.show()
+        return True
+    return False
+
+def test_display_pdf_images(molecule_name):
+    successful_companies = []
+    companies = [
+    "Alfa-Aesar", "Sigma-Aldrich", "TCI", "Acros-Organics", "Matrix",
+    "Strem", "Apollo", "Combi-Blocks", "Oakwood", "Ambeed", "Syn-Quest",
+    "Cayman", "Biosnyth"
+]
+    for company in companies:
+        success = display_pdf_images(molecule_name, company)
+        if success:
+            successful_companies.append(company)
+    return successful_companies
+
+# Example usage
+molecule_name = "Methane"
+
+# Iterate over each company and test the display_pdf_images function
+successful_companies = test_display_pdf_images(molecule_name)
+print("Successful companies:", successful_companies)
+
+
 # Example usage
 
 if __name__ == "__main__":
