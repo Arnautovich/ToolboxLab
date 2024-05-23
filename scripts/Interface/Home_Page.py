@@ -16,7 +16,8 @@ page_file_path2 = 'pages/Chemical_Reaction.py'
 page_file_path3 = 'pages/pH_Calculator.py'
 page_file_path4 = 'pages/Liquid-Liquid_Extraction.py'
 page_file_path5 = 'pages/Boiling_Point_at_new_Pressure.py'
-page_file_path6 = 'pages/Useful_Functions.py'
+page_file_path6 = 'pages/Molecule_Properties_and_MSDS.py'
+page_file_path7 = 'pages/Solvent_Determination.py'
 
 page1 = page_file_path1.split('/')[1][0:-3]  # get "page1"
 page2 = page_file_path2.split('/')[1][0:-3]  # get "page2"
@@ -24,6 +25,8 @@ page3 = page_file_path3.split('/')[1][0:-3]
 page4 = page_file_path4.split('/')[1][0:-3]
 page5 = page_file_path5.split('/')[1][0:-3]
 page6 = page_file_path6.split('/')[1][0:-3]
+page7 = page_file_path7.split('/')[1][0:-3]
+
 
 with col1:
     st.image(path_img1, use_column_width=True)
@@ -78,6 +81,23 @@ with col1:
     )
     st.markdown("<p style='text-align: center;'> This app calculates the boiling point of a liquid at a new pressure.<br />&nbsp;</p>", unsafe_allow_html=True)
     
+    st.image(path_img3, use_column_width=True)
+
+    st.markdown(f'''<h3 style='text-align: center;'><a href="{app_path}/{page7}" target="_self">Solvent Determination</a></h3>''',
+    unsafe_allow_html=True)
+    
+    st.markdown(
+        '''
+        <style>
+        a {
+            text-decoration: none;
+            color: red;
+        }
+        </style>
+        ''', unsafe_allow_html=True
+    )
+    st.markdown("<p style='text-align: center;'> This app fits the best solvent ???.<br />&nbsp;</p>", unsafe_allow_html=True)
+    
 
 with col2:
     st.image(path_img2, use_column_width=True)
@@ -119,7 +139,7 @@ with col2:
 
     st.image(path_img3, use_column_width=True)
 
-    st.markdown(f'''<h3 style='text-align: center;'><a href="{app_path}/{page6}" target="_self">Usefull Functions</a></h3>''',
+    st.markdown(f'''<h3 style='text-align: center;'><a href="{app_path}/{page6}" target="_self">Molecule Properties and MSDS</a></h3>''',
     unsafe_allow_html=True)
 
     st.markdown(

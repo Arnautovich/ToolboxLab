@@ -68,4 +68,4 @@ print("Successful companies:", successful_companies)
 # Example usage
 
 if __name__ == "__main__":
-    display_pdf_images("Dichloromethane")
+    display_pdf_images("Dichloromethane", "Alfa-Aesar")
