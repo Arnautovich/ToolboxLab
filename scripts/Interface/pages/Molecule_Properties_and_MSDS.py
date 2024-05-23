@@ -30,5 +30,5 @@ company = st.selectbox("From which company do you want your **MSDS sheet** ?", l
 
 st.write(f"The **MSDS sheet** of {name} from {company} is:")
 sec = ms2.display_pdf_images(molecule_name=name, company=company)
-
-st.image(sec)
+if sec is not None:
+    st.image(sec)

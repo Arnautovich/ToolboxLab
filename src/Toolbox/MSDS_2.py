@@ -63,7 +63,7 @@ def display_pdf_images(molecule_name, company):
     
     response = requests.get(pdf_url)
     if response.status_code != 200:
-        return 
+        return None
 
     pdf_bytes = response.content
     images = convert_from_bytes(pdf_bytes)

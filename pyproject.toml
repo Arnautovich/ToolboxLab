@@ -18,7 +18,8 @@ dependencies = [
     "typing",
     "chemicals",
     "pdf2image",
-    "requests"
+    "requests",
+    "streamlit"
 ]
 
 authors = [
