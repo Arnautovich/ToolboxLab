@@ -58,4 +58,4 @@ def display_pdf_images(molecule_name, company):
 # Example usage
 
 if __name__ == "__main__":
-    display_pdf_images("Dichloromethane")
+    display_pdf_images("Dichloromethane", "Alfa-Aesar")
