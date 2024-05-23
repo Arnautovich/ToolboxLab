@@ -144,9 +144,4 @@ elif comp == "Buffer solution" and val == "Concentration":
     
     conc = tp.bufferconc(pH=pH, ca=ca, cb=cb, pka=pka, Ka=ka, Kb=kb)
 
-    st.write(f"The missing conentration of the couple acid/base is {conc}")
-
-
-if __name__ == "__main__":
-    st.write(comp)
-    st.write(val)
+    st.write(f"The missing concentration of the couple acid/base is {conc}")
