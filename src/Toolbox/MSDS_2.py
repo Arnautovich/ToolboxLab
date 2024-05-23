@@ -70,6 +70,6 @@ def display_pdf_images(molecule_name, company):
 
     for i, image in enumerate(images):
         images_list.append(image)
+        
     merged_image = merge_images_vertically(images_list)
-    if merged_image:
-        return merged_image
+    return merged_image
