@@ -199,7 +199,6 @@ def weakbaseconc (pH:float, Kb:float=None, pka:float=None, Ka:float=None) -> flo
 
     output:
     The concentration of weak base needed (mol/L) as a float
-
     '''
 
     if pka != None and Kb == None and Ka == None:
