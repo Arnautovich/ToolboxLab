@@ -24,7 +24,7 @@ def merge_images_vertically(image_list):
 
     return merged_image
 
-def display_pdf_images(molecule_name, company):
+def list_companies(molecule_name, company):
     images_list = []
     CAS = resolve_name_to_cas(molecule_name)
     pdf_url = f"https://www.chemblink.com/MSDS/MSDSFiles/{CAS}{company}.pdf"
@@ -40,7 +40,6 @@ def display_pdf_images(molecule_name, company):
         images_list.append(image)
     merged_image = merge_images_vertically(images_list)
     if merged_image:
-        merged_image.show()
         return True
     return False
 
@@ -49,23 +48,37 @@ def test_display_pdf_images(molecule_name):
     companies = [
     "Alfa-Aesar", "Sigma-Aldrich", "TCI", "Acros-Organics", "Matrix",
     "Strem", "Apollo", "Combi-Blocks", "Oakwood", "Ambeed", "Syn-Quest",
-    "Cayman", "Biosnyth"
+    "Cayman", "Biosnyth", "SRL"
 ]
     for company in companies:
-        success = display_pdf_images(molecule_name, company)
+        success = list_companies(molecule_name, company)
         if success:
             successful_companies.append(company)
     return successful_companies
+    
+def display_pdf_images(molecule_name, company):
+    images_list = []
+    CAS = resolve_name_to_cas(molecule_name)
+    pdf_url = f"https://www.chemblink.com/MSDS/MSDSFiles/{CAS}{company}.pdf"
+    
+    response = requests.get(pdf_url)
+    if response.status_code != 200:
+        return 
+
+    pdf_bytes = response.content
+    images = convert_from_bytes(pdf_bytes)
+
+    for i, image in enumerate(images):
+        images_list.append(image)
+    merged_image = merge_images_vertically(images_list)
+    if merged_image:
+        merged_image.show()
+    return 
 
 # Example usage
-molecule_name = "Methane"
+molecule_name = "L-Glutamine"
 
 # Iterate over each company and test the display_pdf_images function
 successful_companies = test_display_pdf_images(molecule_name)
-print("Successful companies:", successful_companies)
-
-
-# Example usage
-
-if __name__ == "__main__":
-    display_pdf_images("Dichloromethane", "Alfa-Aesar")
+print("Succesful companies are :", successful_companies)
+print(display_pdf_images(molecule_name, test_display_pdf_images(molecule_name) ))

@@ -72,13 +72,4 @@ def display_pdf_images(molecule_name, company):
         images_list.append(image)
     merged_image = merge_images_vertically(images_list)
     if merged_image:
-        merged_image.show()
-    return 
-
-# Example usage
-molecule_name = "Methane"
-
-# Iterate over each company and test the display_pdf_images function
-successful_companies = test_display_pdf_images(molecule_name)
-print("Succesful companies are :", successful_companies)
-
+        return merged_image
