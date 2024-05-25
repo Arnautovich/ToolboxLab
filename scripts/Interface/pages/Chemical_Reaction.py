@@ -16,7 +16,8 @@ if reac != "":
     
     st.write('''In this data frame:  
              - Stoichiometric coefficients are negative for reactants and positive for products  
-             - Molecular weights are indicated in g/mol
+             - Molecular weights are indicated in g/mol  
+             - Monoisotopic mass is the sum of the atomic masses of the most common isotope of each element in the molecule, indicated in g/mol  
+             - H bond donor / acceptor count is the number of hydrogen bonds that can be donated or accepted by the molecule  
+             - XlogP is the partition coefficient of the molecule between n-octanol and water
              ''')
-
-# description du tableau + input par default dans box + modifier text input     

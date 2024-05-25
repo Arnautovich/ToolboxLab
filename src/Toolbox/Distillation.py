@@ -131,7 +131,7 @@ def distillation(xD:float, R:float, z:float, q:float, alpha:float, xB:float=None
         if not isinstance(xB, (int, float)):
             raise TypeError('xB must be a number')
         if xB >= xD or xB >= z and xB is not None:
-            raise ValueError('xB must be greated than z and xD')
+            raise ValueError('xB must be greater than z and xD')
         
 
     
