@@ -25,15 +25,17 @@ def bufferpH (ca:float, cb:float, pka:float=None, Ka:float=None, Kb:float=None) 
         raise Exception("Only one constant can be input")
     elif Ka != None and Kb != None:
         raise Exception("Only one constant can be input")
+    elif pka == None and Ka == None and Kb == None:
+        raise Exception("At least one constant must be given")
 
 
     if pka == None and Ka != None:
-        if Ka <0:
-            raise ValueError("The constant can not be negative")
+        if Ka <=0:
+            raise ValueError("The constant can not be negative or equal to 0")
         pka = -np.log10(Ka)
-    else:
-        if Kb <0:
-            raise ValueError("The constant can not be negative")
+    elif pka == None and Kb != None:
+        if Kb <=0:
+            raise ValueError("The constant can not be negative or equal to 0")
         pka = -np.log10(1*10**(-14)/Kb)
 
     return float(pka + np.log10(cb/ca))

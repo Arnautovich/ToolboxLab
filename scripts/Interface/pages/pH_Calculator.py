@@ -1,13 +1,15 @@
 import streamlit as st
 import Toolbox.pH as tp
 
-st.header("What do you want to calculate :")
+st.header("pH Calculator")
+
+st.write("What do you want to calculate ?")
 
 col1, col2 = st.columns(2)
 
 with col1:
 
-    comp = st.radio("Which compound do you need ?", ["Strong acid", "Strong base", "Weak acid", "Weak base", "Buffer solution"], index=None)
+    comp = st.radio("Which compound do you use ?", ["Strong acid", "Strong base", "Weak acid", "Weak base", "Buffer solution"], index=None)
 
 with col2:
 
@@ -114,14 +116,15 @@ elif comp == "Buffer solution" and val =="pH":
 
     if sel == "pKa":
         pka = st.number_input("The pKa of your couple acid/base:", step=10**(-5))
+        pH = tp.bufferpH(ca=ca, cb=cb, pka=pka)
     elif sel == "Ka":
         ka = st.number_input("The Ka of your couple acid/base:", step=10**(-14))
+        pH = tp.bufferpH(ca=ca, cb=cb, Ka=ka)
     else:
-        kb = st.number_input("The Kb of your couple acid/base:", step=10**(-14))
+        kb = st.number_input("The Kb of your couple acid/base:", step=10**(-14), value=None)
+        pH = tp.bufferpH(ca=ca, cb=cb, Kb=kb)
     
-    pH = tp.bufferpH(ca=ca, cb=cb, pka=pka, Ka=ka, Kb=kb)
-
-    st.write(f"The pH calculated is {pH}")
+    st.write(f"The pH calculated is {pH:.2f}")
 
 elif comp == "Buffer solution" and val == "Concentration":
     pH = st.number_input("The pH of your solution:", step=10**(-5))
