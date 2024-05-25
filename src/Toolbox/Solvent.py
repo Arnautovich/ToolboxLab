@@ -52,7 +52,7 @@ def select_solvent(reaction_type, boiling_point, polarity, viscosity):
     }
 
     weights = {
-        "polarity": {0.5: 40, 1: 35, 2: 30, 3: 25, 5: 20, 7: 15, 8: 10},
+        "polarity": {1: 40, 3: 35, 5: 30, 8: 25, 15: 20, 25: 15, 30: 10},
         "boiling_point": {3: 40, 5: 35, 7: 30, 10: 25, 15: 20, 20: 15, 35: 10, 50: 5, 75: 0},
         "viscosity": {0.2: 35, 0.5: 30, 1: 25, 1.5: 20, 2.5: 15, 3.5: 10, 4: 5}
     }
@@ -120,13 +120,3 @@ def select_solvent(reaction_type, boiling_point, polarity, viscosity):
 
     return sorted_solvents[:5]
 
-# Example usage:
-reaction_type = "Recrystallization"
-boiling_point = 150
-polarity = 6
-viscosity = 2.5
-
-top_solvents = select_solvent(reaction_type, boiling_point, polarity, viscosity)
-print(f"The top 5 more accurate Solvents for the {reaction_type} reaction with the chosen values for Boiling point, polarity and viscosity are:")
-for solvent, score in top_solvents:
-    print(f"{solvent}: {score} points")
