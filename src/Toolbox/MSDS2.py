@@ -24,23 +24,37 @@ def merge_images_vertically(image_list):
 
     return merged_image
 
-def list_of_succesful_companies(molecule_name):
-     
+def list_companies(molecule_name, company):
+    images_list = []
     CAS = resolve_name_to_cas(molecule_name)
-    pdf_url = f"https://www.chemblink.com/MSDS/{CAS}MSDS.htm"
+    pdf_url = f"https://www.chemblink.com/MSDS/MSDSFiles/{CAS}{company}.pdf"
     
     response = requests.get(pdf_url)
-    succesful_companies = []
+    if response.status_code != 200:
+        return False
+
+    pdf_bytes = response.content
+    images = convert_from_bytes(pdf_bytes)
+
+    for i, image in enumerate(images):
+        images_list.append(image)
+    merged_image = merge_images_vertically(images_list)
+    if merged_image:
+         return True
+    return False
+
+def test_display_pdf_images(molecule_name):
+    successful_companies = []
     companies = [
     "Alfa-Aesar", "Sigma-Aldrich", "TCI", "Acros-Organics", "Matrix",
     "Strem", "Apollo", "Combi-Blocks", "Oakwood", "Ambeed", "Syn-Quest",
-    "Cayman", "Biosnyth", "SRL"
+    "Cayman", "Biosnyth", "SRL",
 ]
     for company in companies:
-        if company in response.text:
-            succesful_companies.append(company)
-    return succesful_companies
-
+        success = list_companies(molecule_name, company)
+        if success:
+            successful_companies.append(company)
+    return successful_companies
     
 def display_pdf_images(molecule_name, company):
     images_list = []
