@@ -32,7 +32,7 @@ def list_of_succesful_companies(molecule_name):
     response = requests.get(pdf_url)
     succesful_companies = []
     companies = [
-    "Alfa-Aesar", "Sigma-Aldrich", "TCI", "Acros-Organics", "Matrix",
+    "Sigma-Aldrich", "Alfa-Aesar", "TCI", "Acros-Organics", "Matrix",
     "Strem", "Apollo", "Combi-Blocks", "Oakwood", "Ambeed", "Syn-Quest",
     "Cayman", "Biosnyth", "SRL"
 ]

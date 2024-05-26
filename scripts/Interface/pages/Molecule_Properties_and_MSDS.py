@@ -22,9 +22,11 @@ The atom list is: {nbre}
 Usefull properties are:''')
 st.dataframe(prop, width=700)
 
-list_comp = ms2.test_display_pdf_images(name)
+list_comp = ms2.list_of_succesful_companies(name)
 
-company = st.selectbox("From which company do you want your **MSDS sheet** ?", list_comp)
+st.write("From which company do you want your **MSDS sheet** ?")
+
+company = st.selectbox(".", list_comp, label_visibility="collapsed")
 
 st.write(f"The **MSDS sheet** of {name} from {company} is:")
 sec = ms2.display_pdf_images(molecule_name=name, company=company)

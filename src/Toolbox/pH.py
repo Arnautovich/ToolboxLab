@@ -19,13 +19,13 @@ def bufferpH (ca:float, cb:float, pka:float=None, Ka:float=None, Kb:float=None) 
 
     if ca <0 or cb <0:
         raise ValueError("The concentration can not be negative")
-    elif pka != None and Ka != None:
+    elif pka is not None and Ka is not None:
         raise Exception("Only one constant can be input")
-    elif pka != None and Kb != None:
+    elif pka is not None and Kb is not None:
         raise Exception("Only one constant can be input")
-    elif Ka != None and Kb != None:
+    elif Ka is not None and Kb is not None:
         raise Exception("Only one constant can be input")
-    elif pka == None and Ka == None and Kb == None:
+    elif pka is None and Ka is None and Kb is None:
         raise Exception("At least one constant must be given")
 
 
@@ -41,7 +41,7 @@ def bufferpH (ca:float, cb:float, pka:float=None, Ka:float=None, Kb:float=None) 
     return float(pka + np.log10(cb/ca))
 
 
-def bufferconc (pH:float=7, ca:float=None, cb:float=None, pka:float=None, Ka:float=None, Kb:float=None) -> float:
+def bufferconc (pH:float, ca:float=None, cb:float=None, pka:float=None, Ka:float=None, Kb:float=None) -> float:
     '''
     This function calculates the concentration of one compound, in a buffer solution of a weak acid/base couple in water, needed to achieve the pH indicated
     by knowing the pH, the concentration of the conjugate compound and either the pKa, Ka or Kb
@@ -58,32 +58,40 @@ def bufferconc (pH:float=7, ca:float=None, cb:float=None, pka:float=None, Ka:flo
     output:
     The missing concentration (mol/L) as float
     '''
-
-    if ca <0 or cb <0:
+    # Check the input
+    if ca is not None and ca < 0:
         raise ValueError("The concentration can not be negative")
-    elif pka != None and Ka != None:
+    elif cb is not None and cb < 0:
+        raise ValueError("The concentration can not be negative")
+    elif pka is not None and Ka is not None:
         raise Exception("Only one constant can be input")
-    elif pka != None and Kb != None:
+    elif pka is not None and Kb is not None:
         raise Exception("Only one constant can be input")
-    elif Ka != None and Kb != None:
+    elif Ka is not None and Kb is not None:
         raise Exception("Only one constant can be input")
+    elif pka is None and Ka is None and Kb is None:
+        raise Exception("At least one constant must be given")
 
+    # Calculate pKa if Ka or Kb given
+    if pka is None:
+        if Ka is not None:
+            if Ka <= 0:
+                raise ValueError("The acidity constant (Ka) must be positive")
+            pka = -np.log10(Ka)
+        elif Kb is not None:
+            if Kb <= 0:
+                raise ValueError("The basicity constant (Kb) must be positive")
+            pka = 14 + np.log10(Kb)
 
-    if pka == None and Ka != None:
-        if Ka <0:
-            raise ValueError("The constant can not be negative")
-        pka = -np.log10(Ka)
-    else:
-        if Kb <0:
-            raise ValueError("The constant can not be negative")
-        pka = -np.log10(1*10**(-14)/Kb)
-
-    if ca == None:
-        ca = cb/(10**(pH-pka))
+    # Calculate the missing concentration
+    if ca is None and cb is not None:
+        ca = cb / (10**(pH - pka))
         return float(ca)
-    else:
-        cb = ca*10**(pH-pka)
+    elif cb is None and ca is not None:
+        cb = ca * (10**(pH - pka))
         return float(cb)
+    else:
+        raise ValueError("Exactly one of ca or cb must be provided")
 
 
 def strongacidpH (ca:float) -> float:
@@ -166,8 +174,10 @@ def weakacidpH (ca:float, Ka:float=None, pka:float=None) -> float:
     '''
     if ca <0:
         raise ValueError("The concentration can not be negative")
-    elif pka != None and Ka != None:
+    elif pka is not None and Ka is not None:
         raise Exception("Only one constant can be input")
+    elif pka is None and Ka is None:
+        raise Exception("At least one constant must be given")
 
 
     if pka != None and Ka == None:
@@ -196,12 +206,14 @@ def weakbasepH (cb:float, Ka:float=None, pka:float=None, Kb:float=None) -> float
     '''
     if cb <0:
         raise ValueError("The concentration can not be negative")
-    elif pka != None and Ka != None:
+    elif pka is not None and Ka is not None:
         raise Exception("Only one constant can be input")
-    elif pka != None and Kb != None:
+    elif pka is not None and Kb is not None:
         raise Exception("Only one constant can be input")
-    elif Ka != None and Kb != None:
+    elif Ka is not None and Kb is not None:
         raise Exception("Only one constant can be input")
+    elif pka is None and Ka is None and Kb is None:
+        raise Exception("At least one constant must be given")
 
 
     if pka != None and Ka == None and Kb == None:
@@ -231,8 +243,10 @@ def weakacidconc (pH:float, Ka:float=None, pka:float=None) -> float:
     output:
     The concentration of weak acid needed (mol/L) as a float
     '''
-    if pka != None and Ka != None:
+    if pka is not None and Ka is not None:
         raise Exception("Only one constant can be input")
+    elif pka is None and Ka is None:
+        raise Exception("At least one constant must be given")
 
 
     if pka != None and Ka == None:
@@ -256,12 +270,14 @@ def weakbaseconc (pH:float, Kb:float=None, pka:float=None, Ka:float=None) -> flo
     output:
     The concentration of weak base needed (mol/L) as a float
     '''
-    if pka != None and Ka != None:
+    if pka is not None and Ka is not None:
         raise Exception("Only one constant can be input")
-    elif pka != None and Kb != None:
+    elif pka is not None and Kb is not None:
         raise Exception("Only one constant can be input")
-    elif Ka != None and Kb != None:
+    elif Ka is not None and Kb is not None:
         raise Exception("Only one constant can be input")
+    elif pka is None and Ka is None and Kb is None:
+        raise Exception("At least one constant must be given")
 
 
     if pka != None and Kb == None and Ka == None:
@@ -275,13 +291,4 @@ def weakbaseconc (pH:float, Kb:float=None, pka:float=None, Ka:float=None) -> flo
 
 
 if __name__ == "__main__" :
-    print("pH buffer :", bufferpH(0.4, 1, Kb=1.8*10**(-5)))
-    #print("concentration buffer :", bufferconc(9.65, 0.4, None, Kb=1.8*10**(-5)))
-    #print("pH acide fort :",strongacidpH(0.234))
-    #print("pH base forte :",strongbasepH(2*0.013))
-    #print("conc acide fort :", strongacidconc(0.6307))
-    #print("conc base forte :", strongbaseconc(12.41497))
-    #print("pH acide faible :", weakacidpH(0.2, Ka=1.74*10**(-5)))
-    #print("pH base faible :", weakbasepH(0.5*10**(-6), 10**(-6)))
-    #print("conc d'acide faible :", weakacidconc(3.11, 6.5*10**(-5)))
-    #print("conc de base faible :", weakbaseconc(11.13, Kb=1.77*10**(-5)))
+    print("bufferconc", bufferconc(4, None, 0.01, 4.3))
