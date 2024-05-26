@@ -90,7 +90,6 @@ def select_solvent(reaction_type, boiling_point, polarity, viscosity):
         "Knoevenagel Condensation:": {"polarity": 1.2, "boiling_point": 1.6, "viscosity": 1.2},
         "Recrystallization::": {"polarity": 1.3, "boiling_point": 1.6, "viscosity": 1.1},
         "Steam Distillation:": {"polarity": 1.2, "boiling_point": 1.7, "viscosity": 1.1}
-       
     }
     
     if reaction_type in reaction_adjustments:
@@ -119,3 +118,5 @@ def select_solvent(reaction_type, boiling_point, polarity, viscosity):
     sorted_solvents = sorted(scores, key=lambda x: x[1], reverse=True)
 
     return sorted_solvents[:5]
+if __name__ == "__main__":
+    print(select_solvent(reaction_type="Recrystallisation", boiling_point=150, polarity=6, viscosity=2.5))

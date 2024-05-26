@@ -16,15 +16,15 @@ reaction_list = ["SN1","SN2","Aldol",
                  "Wittig Reaction","Claisen Condensation",
                  "Cannizzaro Reaction","Baeyer-Villiger Oxidation",
                  "Polymerization","Crystallization Reactions",
-                 "Enzymatic Reactions:","Phase Transfer Catalysis:",
-                 "Reflux Reactions:","Distillation",
-                 "Knoevenagel Condensation:","Recrystallization::",
-                 "Steam Distillation:"]
+                 "Enzymatic Reactions:","Phase Transfer Catalysis",
+                 "Reflux Reactions","Distillation",
+                 "Knoevenagel Condensation","Recrystallization",
+                 "Steam Distillation"]
 
-reaction_picked = st.selectbox("What type of reaction are you doing ?", reaction_list, index=None)
-boiling_point = st.number_input("The targeted boiling point of your solvent []:", value=None)
-polarity = st.number_input("The targeted polarity of your solvent []:", value=None)
-viscosity = st.number_input("The targeted viscosity of your solvent []:", value=None)
+reaction_picked = st.selectbox("What type of **reaction** are you doing ?", reaction_list, index=None)
+boiling_point = st.number_input("The targeted **boiling point** of your solvent [°C]:", value=None)
+polarity = st.number_input("The targeted **polarity** (by Snyder) of your solvent:", value=None)
+viscosity = st.number_input("The targeted **viscosity** of your solvent [mPa $\cdot$ s]:", value=None)
 
 if reaction_picked != None and boiling_point != None and polarity != None and viscosity != None:
 
