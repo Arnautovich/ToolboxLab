@@ -90,7 +90,6 @@ def select_solvent(reaction_type, boiling_point, polarity, viscosity):
         "Knoevenagel Condensation:": {"polarity": 1.2, "boiling_point": 1.6, "viscosity": 1.2},
         "Recrystallization::": {"polarity": 1.3, "boiling_point": 1.6, "viscosity": 1.1},
         "Steam Distillation:": {"polarity": 1.2, "boiling_point": 1.7, "viscosity": 1.1}
-       
     }
     
     if reaction_type in reaction_adjustments:
@@ -119,6 +118,7 @@ def select_solvent(reaction_type, boiling_point, polarity, viscosity):
     sorted_solvents = sorted(scores, key=lambda x: x[1], reverse=True)
 
     return sorted_solvents[:5]
+<<<<<<< HEAD:src/Toolbox/Solvents.py
 
 reaction_type = "Recrystallization"
 boiling_point = 150
@@ -130,3 +130,7 @@ top_solvents = select_solvent(reaction_type, boiling_point, polarity, viscosity)
 print(f"The top 5 more accurate Solvents for the {reaction_type} reaction with the chosen values for Boiling point, polarity and viscosity are:")
 for solvent, score in top_solvents:
     print(f"{solvent}: {score} points")
+=======
+if __name__ == "__main__":
+    print(select_solvent(reaction_type="Recrystallisation", boiling_point=150, polarity=6, viscosity=2.5))
+>>>>>>> 04563e40cb978dc2721349fd2ad6536e01b15153:src/Toolbox/Solvent.py
