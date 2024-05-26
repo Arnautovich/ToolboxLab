@@ -24,7 +24,7 @@ def merge_images_vertically(image_list):
 
     return merged_image
 
-def list_of__succesful_companies(molecule_name):
+def list_of_succesful_companies(molecule_name):
      
     CAS = resolve_name_to_cas(molecule_name)
     pdf_url = f"https://www.chemblink.com/MSDS/{CAS}MSDS.htm"

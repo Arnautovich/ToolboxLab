@@ -16,11 +16,7 @@ reaction_list = ["SN1","SN2","Aldol",
                  "Wittig Reaction","Claisen Condensation",
                  "Cannizzaro Reaction","Baeyer-Villiger Oxidation",
                  "Polymerization","Crystallization Reactions",
-<<<<<<< HEAD
                  "Enzymatic Reactions","Phase Transfer Catalysis",
-=======
-                 "Enzymatic Reactions:","Phase Transfer Catalysis",
->>>>>>> 04563e40cb978dc2721349fd2ad6536e01b15153
                  "Reflux Reactions","Distillation",
                  "Knoevenagel Condensation","Recrystallization",
                  "Steam Distillation"]
