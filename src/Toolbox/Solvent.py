@@ -52,9 +52,9 @@ def select_solvent(reaction_type, boiling_point, polarity, viscosity):
     }
 
     weights = {
-        "polarity": {1: 40, 3: 35, 5: 30, 8: 25, 15: 20, 25: 15, 30: 10},
-        "boiling_point": {3: 40, 5: 35, 7: 30, 10: 25, 15: 20, 20: 15, 35: 10, 50: 5, 75: 0},
-        "viscosity": {0.2: 35, 0.5: 30, 1: 25, 1.5: 20, 2.5: 15, 3.5: 10, 4: 5}
+        "polarity": {0.3: 40, 0.7: 35, 1.2: 30, 2: 25, 3.5: 20, 5: 10, 7: 5},
+        "boiling_point": {3: 40, 5: 35, 7: 30, 10: 25, 15: 20, 20: 15, 35: 10, 50: 5, 75: 1},
+        "viscosity": {0.2: 35, 0.5: 30, 1: 25, 1.5: 20, 2: 15, 3: 10, 3.5: 5}
     }
 
     reaction_adjustments = {
@@ -89,7 +89,7 @@ def select_solvent(reaction_type, boiling_point, polarity, viscosity):
         "Distillation": {"polarity": 1.1, "boiling_point": 1.8, "viscosity": 1.1},
         "Knoevenagel Condensation:": {"polarity": 1.2, "boiling_point": 1.6, "viscosity": 1.2},
         "Recrystallization::": {"polarity": 1.3, "boiling_point": 1.6, "viscosity": 1.1},
-        "Steam Distillation:": {"polarity": 1.2, "boiling_point": 1.7, "viscosity": 1.1},
+        "Steam Distillation:": {"polarity": 1.2, "boiling_point": 1.7, "viscosity": 1.1}
        
     }
     
@@ -119,4 +119,3 @@ def select_solvent(reaction_type, boiling_point, polarity, viscosity):
     sorted_solvents = sorted(scores, key=lambda x: x[1], reverse=True)
 
     return sorted_solvents[:5]
-
