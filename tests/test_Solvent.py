@@ -1,6 +1,6 @@
 import unittest
 from Toolbox.Solvent import select_solvent
-print(select_solvent("Recrystallization", 150, 6, 2.5))
+
 class TestSelectSolvent(unittest.TestCase):
 
     def test_select_solvent_recrystallization(self):
