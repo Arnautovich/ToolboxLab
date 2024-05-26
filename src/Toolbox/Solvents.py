@@ -119,3 +119,14 @@ def select_solvent(reaction_type, boiling_point, polarity, viscosity):
     sorted_solvents = sorted(scores, key=lambda x: x[1], reverse=True)
 
     return sorted_solvents[:5]
+
+reaction_type = "Recrystallization"
+boiling_point = 150
+polarity = 6
+viscosity = 2.5
+
+
+top_solvents = select_solvent(reaction_type, boiling_point, polarity, viscosity)
+print(f"The top 5 more accurate Solvents for the {reaction_type} reaction with the chosen values for Boiling point, polarity and viscosity are:")
+for solvent, score in top_solvents:
+    print(f"{solvent}: {score} points")

@@ -1,5 +1,5 @@
 import unittest
-from Toolbox.Solvent import select_solvent
+from Toolbox.Solvents import select_solvent
 
 class TestSelectSolvent(unittest.TestCase):
 
@@ -13,11 +13,11 @@ class TestSelectSolvent(unittest.TestCase):
         top_solvents = select_solvent(reaction_type, boiling_point, polarity, viscosity)
 
         expected_top_solvents = [
-            ("N,N-Dimethylformamide", 90.0),
-            ("Dimethyl Acetamide", 80.0),
-            ("Methyl Isoamyl Ketone", 70.0),
-            ("2-Methoxyethanol", 70.0),
-            ("Propylene Carbonate", 70.0),
+            ("N,N-Dimethylformamide", 90),
+            ("Dimethyl Acetamide", 80),
+            ("Methyl Isoamyl Ketone", 70),
+            ("2-Methoxyethanol", 70),
+            ("Propylene Carbonate", 70),
         ]
 
         self.assertEqual(top_solvents, expected_top_solvents)

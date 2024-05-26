@@ -16,10 +16,10 @@ reaction_list = ["SN1","SN2","Aldol",
                  "Wittig Reaction","Claisen Condensation",
                  "Cannizzaro Reaction","Baeyer-Villiger Oxidation",
                  "Polymerization","Crystallization Reactions",
-                 "Enzymatic Reactions:","Phase Transfer Catalysis:",
-                 "Reflux Reactions:","Distillation",
-                 "Knoevenagel Condensation:","Recrystallization::",
-                 "Steam Distillation:"]
+                 "Enzymatic Reactions","Phase Transfer Catalysis",
+                 "Reflux Reactions","Distillation",
+                 "Knoevenagel Condensation","Recrystallization",
+                 "Steam Distillation"]
 
 reaction_picked = st.selectbox("What type of reaction are you doing ?", reaction_list, index=None)
 boiling_point = st.number_input("The targeted boiling point of your solvent []:", value=None)
