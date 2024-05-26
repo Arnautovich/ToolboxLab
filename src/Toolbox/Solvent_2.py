@@ -1,4 +1,4 @@
-def select_solvent(reaction_type, boiling_point, polarity, viscosity):
+def select_solvent_2(reaction_type, boiling_point, polarity, viscosity):
     solvents = [
         {"name": "Water", "polarity": 10.2, "boiling_point": 100, "viscosity": 1.0},
         {"name": "Ethanol", "polarity": 4.3, "boiling_point": 78.37, "viscosity": 1.1},
@@ -52,44 +52,44 @@ def select_solvent(reaction_type, boiling_point, polarity, viscosity):
     }
 
     weights = {
-        "polarity": {0.3: 40, 0.7: 35, 1.2: 30, 2: 25, 3.5: 20, 5: 10, 7: 5},
-        "boiling_point": {3: 40, 5: 35, 7: 30, 10: 25, 15: 20, 20: 15, 35: 10, 50: 5, 75: 1},
-        "viscosity": {0.2: 35, 0.5: 30, 1: 25, 1.5: 20, 2: 15, 3: 10, 3.5: 5}
+        "polarity": {0.5: 40, 1: 35, 2: 30, 3: 25, 5: 20, 7: 15, 8: 10},
+        "boiling_point": {3: 40, 5: 35, 7: 30, 10: 25, 15: 20, 20: 15, 35: 10, 50: 5, 75: 0},
+        "viscosity": {0.2: 35, 0.5: 30, 1: 25, 1.5: 20, 2.5: 15, 3.5: 10, 4: 5}
     }
 
     reaction_adjustments = {
-        "SN1": {"polarity": 1.6, "boiling_point": 1.3, "viscosity": 1.1},
-        "SN2": {"polarity": 1.4, "boiling_point": 1.5, "viscosity": 1.1},
-        "Grignard": {"polarity": 1.4, "boiling_point": 1.5, "viscosity": 1.1},
-        "Esterification": {"polarity": 1.6, "boiling_point": 1.3, "viscosity": 1.1},
-        "Aldol": {"polarity": 1.5, "boiling_point": 1.2, "viscosity": 1.3},
-        "Friedel-Crafts": {"polarity": 1.6, "boiling_point": 1.3, "viscosity": 1.1},
-        "Hydrogenation": {"polarity": 1.1, "boiling_point": 1.3, "viscosity": 1.6},
-        "Oxidation": {"polarity": 1.6, "boiling_point": 1.3, "viscosity": 1.1},
-        "Reduction": {"polarity": 1.6, "boiling_point": 1.3, "viscosity": 1.1},
-        "Heck": {"polarity": 1.6, "boiling_point": 1.3, "viscosity": 1.1},
-        "Suzuki Coupling": {"polarity": 1.6, "boiling_point": 1.3, "viscosity": 1.1},
-        "Sonogashira Coupling": {"polarity": 1.6, "boiling_point": 1.3, "viscosity": 1.1},
-        "Nitration": {"polarity": 1.6, "boiling_point": 1.3, "viscosity": 1.1},
-        "Sulfonation": {"polarity": 1.6, "boiling_point": 1.3, "viscosity": 1.1},
-        "Amination": {"polarity": 1.3, "boiling_point": 1.2, "viscosity": 1.5},
-        "Michael Addition": {"polarity": 1.5, "boiling_point": 1.2, "viscosity": 1.3},
-        "Fischer Esterification": {"polarity": 1.6, "boiling_point": 1.3, "viscosity": 1.1},
-        "Buchwald-Hartwig Amination": {"polarity": 1.6, "boiling_point": 1.3, "viscosity": 1.1},
-        "Grignard addition": {"polarity": 1.4, "boiling_point": 1.5, "viscosity": 1.1},
-        "Wittig Reaction": {"polarity": 1.6, "boiling_point": 1.3, "viscosity": 1.1},
-        "Claisen Condensation": {"polarity": 1.5, "boiling_point": 1.3, "viscosity": 1.2},
-        "Cannizzaro Reaction": {"polarity": 1.6, "boiling_point": 1.3, "viscosity": 1.1},
-        "Baeyer-Villiger Oxidation": {"polarity": 1.6, "boiling_point": 1.3, "viscosity": 1.1},
-        "Polymerization": {"polarity": 1.2, "boiling_point": 1.3, "viscosity": 1.5},
-        "Crystallization Reactions": {"polarity": 1.2, "boiling_point": 1.3, "viscosity": 1.5},
-        "Enzymatic Reactions": {"polarity": 1.6, "boiling_point": 1.3, "viscosity": 1.6},
-        "Phase Transfer Catalysis": {"polarity": 1.3, "boiling_point": 1.2, "viscosity": 1.5},
-        "Reflux Reactions": {"polarity": 1.2, "boiling_point": 1.7, "viscosity": 1.1},
-        "Distillation": {"polarity": 1.1, "boiling_point": 1.8, "viscosity": 1.1},
-        "Knoevenagel Condensation": {"polarity": 1.2, "boiling_point": 1.6, "viscosity": 1.2},
-        "Recrystallization": {"polarity": 1.3, "boiling_point": 1.6, "viscosity": 1.1},
-        "Steam Distillation": {"polarity": 1.2, "boiling_point": 1.7, "viscosity": 1.1}
+        "SN1": {"polarity": 0.6, "boiling_point": 0.3, "viscosity": 0.1},
+        "SN2": {"polarity": 0.4, "boiling_point": 0.5, "viscosity": 0.1},
+        "Grignard": {"polarity": 0.4, "boiling_point": 0.5, "viscosity": 0.1},
+        "Esterification": {"polarity": 0.6, "boiling_point": 0.3, "viscosity": 0.1},
+        "Aldol": {"polarity": 0.5, "boiling_point": 0.2, "viscosity": 0.3},
+        "Friedel-Crafts": {"polarity": 0.6, "boiling_point": 0.3, "viscosity": 0.1},
+        "Hydrogenation": {"polarity": 0.1, "boiling_point": 0.3, "viscosity": 0.6},
+        "Oxidation": {"polarity": 0.6, "boiling_point": 0.3, "viscosity": 0.1},
+        "Reduction": {"polarity": 0.6, "boiling_point": 0.3, "viscosity": 0.1},
+        "Heck": {"polarity": 0.6, "boiling_point": 0.3, "viscosity": 0.1},
+        "Suzuki Coupling": {"polarity": 0.6, "boiling_point": 0.3, "viscosity": 0.1},
+        "Sonogashira Coupling": {"polarity": 0.6, "boiling_point": 0.3, "viscosity": 0.1},
+        "Nitration": {"polarity": 0.6, "boiling_point": 0.3, "viscosity": 0.1},
+        "Sulfonation": {"polarity": 0.6, "boiling_point": 0.3, "viscosity": 0.1},
+        "Amination": {"polarity": 0.3, "boiling_point": 0.2, "viscosity": 0.5},
+        "Michael Addition": {"polarity": 0.5, "boiling_point": 0.2, "viscosity": 0.3},
+        "Fischer Esterification": {"polarity": 0.6, "boiling_point": 0.3, "viscosity": 0.1},
+        "Buchwald-Hartwig Amination": {"polarity": 0.6, "boiling_point": 0.3, "viscosity": 0.1},
+        "Grignard addition": {"polarity": 0.4, "boiling_point": 0.5, "viscosity": 0.1},
+        "Wittig Reaction": {"polarity": 0.6, "boiling_point": 0.3, "viscosity": 0.1},
+        "Claisen Condensation": {"polarity": 0.5, "boiling_point": 0.3, "viscosity": 0.2},
+        "Cannizzaro Reaction": {"polarity": 0.6, "boiling_point": 0.3, "viscosity": 0.1},
+        "Baeyer-Villiger Oxidation": {"polarity": 0.6, "boiling_point": 0.3, "viscosity": 0.1},
+        "Polymerization": {"polarity": 0.2, "boiling_point": 0.3, "viscosity": 0.5},
+        "Crystallization Reactions": {"polarity": 0.2, "boiling_point": 0.3, "viscosity": 0.5},
+        "Enzymatic Reactions": {"polarity": 0.6, "boiling_point": 0.3, "viscosity": 0.6},
+        "Phase Transfer Catalysis": {"polarity": 0.3, "boiling_point": 0.2, "viscosity": 0.5},
+        "Reflux Reactions": {"polarity": 0.2, "boiling_point": 0.7, "viscosity": 0.1},
+        "Distillation": {"polarity": 0.1, "boiling_point": 0.8, "viscosity": 0.1},
+        "Knoevenagel Condensation": {"polarity": 0.2, "boiling_point": 0.6, "viscosity": 0.2},
+        "Recrystallization": {"polarity": 0.3, "boiling_point": 0.6, "viscosity": 0.1},
+        "Steam Distillation": {"polarity": 0.2, "boiling_point": 0.7, "viscosity": 0.1},
     }
     
     if reaction_type in reaction_adjustments:
@@ -119,4 +119,13 @@ def select_solvent(reaction_type, boiling_point, polarity, viscosity):
 
     return sorted_solvents[:5]
 
-print(select_solvent("Recrystallization",150, 6, 2.5))
+reaction_type = "Recrystallization"
+boiling_point = 150
+polarity = 6
+viscosity = 2.5
+
+
+top_solvents = select_solvent_2(reaction_type, boiling_point, polarity, viscosity)
+print(f"The top 5 more accurate Solvents for the {reaction_type} reaction with the chosen values for Boiling point, polarity and viscosity are:")
+for solvent, score in top_solvents:
+    print(f"{solvent}: {score} points")
