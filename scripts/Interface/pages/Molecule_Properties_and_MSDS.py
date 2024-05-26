@@ -6,8 +6,6 @@ import Toolbox.MSDS_2 as ms2
 
 st.header("Molecule Properties and MSDS")
 
-st.subheader("Molecule Description")
-
 name = st.text_input("The name of your molecule:", value="methane", help="If the name used does not work, try different names for your compound")
 el = tc.elements(name)
 
