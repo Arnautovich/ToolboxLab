@@ -50,7 +50,7 @@ elif comp == "Weak acid" and val == "pH":
     ka, pka = None, None
 
     if sel == "Ka":
-        ka = st.number_input("The Ka of your acid:", step=10**(-14), value=None)
+        ka = st.number_input("The Ka of your acid:", step=10**(-14), value=None, help="You can use this notation for power of 10 : xey = x*10^y")
     else:
         pka = st.number_input("The pKa of your acid:", step=10**(-14), value=None)
     
@@ -65,7 +65,7 @@ elif comp == "Weak acid" and val == "Concentration":
     ka, pka = None, None
 
     if sel == "Ka":
-        ka = st.number_input("The Ka of your acid:", step=10**(-14), value=None)
+        ka = st.number_input("The Ka of your acid:", step=10**(-14), value=None, help="You can use this notation for power of 10 : xey = x*10^y")
     else:
         pka = st.number_input("The pKa of your acid:", step=10**(-14), value=None)
     
@@ -80,11 +80,11 @@ elif comp == "Weak base" and val == "pH":
     ka, pka, kb = None, None, None
 
     if sel == "Ka":
-        ka = st.number_input("The Ka of your base:", step=10**(-14), value=None)
+        ka = st.number_input("The Ka of your base:", step=10**(-14), value=None, help="You can use this notation for power of 10 : xey = x*10^y")
     elif sel == "pKa":
         pka = st.number_input("The pKa of your base:", step=10**(-5), value=None)
     else:
-        kb = st.number_input("The Kb of your base:", step=10**(-14), value=None)
+        kb = st.number_input("The Kb of your base:", step=10**(-14), value=None, help="You can use this notation for power of 10 : xey = x*10^y")
     
     pH = tp.weakbasepH(conc, Ka=ka, pka=pka, Kb=kb)
 
@@ -97,11 +97,11 @@ elif comp == "Weak base" and val == "Concentration":
     kb, pka, ka = None, None, None
 
     if sel == "Kb":
-        kb = st.number_input("The Kb of your base:", step=10**(-14), value=None)
+        kb = st.number_input("The Kb of your base:", step=10**(-14), value=None, help="You can use this notation for power of 10 : xey = x*10^y")
     elif sel == "pKa":
         pka = st.number_input("The pKa of your base:", step=10**(-5), value=None)
     else:
-        ka = st.number_input("The Ka of your base:", step=10**(-14), value=None)
+        ka = st.number_input("The Ka of your base:", step=10**(-14), value=None, help="You can use this notation for power of 10 : xey = x*10^y")
 
     conc = tp.weakbaseconc(pH, Kb=kb, pka=pka, Ka=ka)
 
@@ -118,10 +118,10 @@ elif comp == "Buffer solution" and val =="pH":
         pka = st.number_input("The pKa of your couple acid/base:", step=10**(-5), value=None)
         pH = tp.bufferpH(ca=ca, cb=cb, pka=pka)
     elif sel == "Ka":
-        ka = st.number_input("The Ka of your couple acid/base:", step=10**(-14), value=None)
+        ka = st.number_input("The Ka of your couple acid/base:", step=10**(-14), value=None, help="You can use this notation for power of 10 : xey = x*10^y")
         pH = tp.bufferpH(ca=ca, cb=cb, Ka=ka)
     else:
-        kb = st.number_input("The Kb of your couple acid/base:", step=10**(-14), value=None)
+        kb = st.number_input("The Kb of your couple acid/base:", step=10**(-14), value=None, help="You can use this notation for power of 10 : xey = x*10^y")
         pH = tp.bufferpH(ca=ca, cb=cb, Kb=kb)
     
     st.subheader(f"The pH calculated is {pH:.2f}")
@@ -142,9 +142,9 @@ elif comp == "Buffer solution" and val == "Concentration":
     if sel2 == "pKa":
         pka = st.number_input("The pKa of your couple acid/base:", step=10**(-5), value=None)
     elif sel2 == "Ka":
-        ka = st.number_input("The Ka of your couple acid/base:", step=10**(-14), value=None)
+        ka = st.number_input("The Ka of your couple acid/base:", step=10**(-14), value=None, help="You can use this notation for power of 10 : xey = x*10^y")
     else:
-        kb = st.number_input("The Kb of your couple acid/base:", step=10**(-14), value=None)
+        kb = st.number_input("The Kb of your couple acid/base:", step=10**(-14), value=None, help="You can use this notation for power of 10 : xey = x*10^y")
     
     conc = tp.bufferconc(pH=pH, ca=ca, cb=cb, pka=pka, Ka=ka, Kb=kb)
 
