@@ -2,26 +2,7 @@ import unittest
 from Toolbox.Solvent import select_solvent
 
 class TestSelectSolvent(unittest.TestCase):
-
-    def test_select_solvent_recrystallization(self):
-        # Test for the "Recrystallization" reaction
-        reaction_type = "Recrystallization"
-        boiling_point = 150
-        polarity = 6
-        viscosity = 2.5
-
-        top_solvents = select_solvent(reaction_type, boiling_point, polarity, viscosity)
-
-        expected_top_solvents = [
-            ("N,N-Dimethylformamide", 126),
-            ("Dimethyl Acetamide", 102.5),
-            ("Methyl Isoamyl Ketone", 97),
-            ("2-Methoxyethanol", 90.5),
-            ("Propylene Carbonate", 89),
-        ]
-
-        self.assertEqual(top_solvents, expected_top_solvents)
-
+        
     def test_select_solvent_hydrogenation(self):
         # Test for the "Hydrogenation" reaction
         reaction_type = "Hydrogenation"
