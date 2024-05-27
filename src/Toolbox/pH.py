@@ -37,7 +37,7 @@ def bufferpH (ca:float, cb:float, pka:float=None, Ka:float=None, Kb:float=None) 
         if Kb <=0:
             raise ValueError("The constant can not be negative or equal to 0")
         pka = -np.log10(1*10**(-14)/Kb)
-
+    
     return float(pka + np.log10(cb/ca))
 
 
@@ -86,9 +86,14 @@ def bufferconc (pH:float, ca:float=None, cb:float=None, pka:float=None, Ka:float
     # Calculate the missing concentration
     if ca is None and cb is not None:
         ca = cb / (10**(pH - pka))
+        if ca < 0:
+            raise ValueError("The concentration calculated is negative, check your inputs")
         return float(ca)
+    
     elif cb is None and ca is not None:
         cb = ca * (10**(pH - pka))
+        if cb < 0:
+            raise ValueError("The concentration calculated is negative, check your inputs")
         return float(cb)
     else:
         raise ValueError("Exactly one of ca or cb must be provided")
@@ -105,7 +110,7 @@ def strongacidpH (ca:float) -> float:
     The pH of the solution as float
     '''
     if ca <0:
-        raise ValueError("The concentration can not be negative")
+        raise ValueError("The concentration calculated is negative, check your inputs")
 
     return float(-np.log10(0.5*ca + np.sqrt(0.25*ca**2 + 10**(-14))))
 
@@ -121,7 +126,7 @@ def strongbasepH (cb:float) -> float:
     The pH of the solution as float
     '''
     if cb <0:
-        raise ValueError("The concentration can not be negative")
+        raise ValueError("The concentration calculated is negative, check your inputs")
 
     return -np.log10(-0.5*cb + np.sqrt(0.25*cb**2 + 10**(-14)))
 
@@ -136,7 +141,10 @@ def strongacidconc (pH:float) -> float:
     output:
     The concentration of strong acid needed (mol/L) as float
     '''
-    return float(10**(-pH)-10**(-7))
+    ca =  float(10**(-pH)-10**(-7))
+    if ca <0:
+        raise ValueError("The concentration calculated is negative, check your inputs")
+    return ca
 
 
 def strongbaseconc (pH:float=None, pOH:float=None) -> float:
@@ -154,8 +162,11 @@ def strongbaseconc (pH:float=None, pOH:float=None) -> float:
 
     if pOH != None and pH == None:
         pH = 14 - pOH
-
-    return float(10**(pH-14) - 10**(-7-pH))
+    
+    cb = float(10**(pH-14) - 10**(-7-pH))
+    if cb <0:
+        raise ValueError("The concentration calculated is negative, check your inputs")
+    return cb
 
 
 def weakacidpH (ca:float, Ka:float=None, pka:float=None) -> float:
@@ -186,7 +197,7 @@ def weakacidpH (ca:float, Ka:float=None, pka:float=None) -> float:
     if ca > 10**(-7):
         return float(-np.log10(-0.5*Ka + np.sqrt(0.25*Ka**2 + ca*Ka)))
     else:
-        raise "the concentration is too low to calculate precisely"
+        raise ValueError("Concentration too low to calculate precisely")
 
     
 def weakbasepH (cb:float, Ka:float=None, pka:float=None, Kb:float=None) -> float:
@@ -226,7 +237,7 @@ def weakbasepH (cb:float, Ka:float=None, pka:float=None, Kb:float=None) -> float
     if cb > 10**(-7):
         return float(-np.log10(0.5*10**(-14)/cb + np.sqrt(0.25*(10**(-14)/cb)**2 + 10**(-14)*Ka/cb)))
     else:
-        raise "Concentration too low to calculate precisely"
+        raise ValueError("Concentration too low to calculate precisely")
 
 
 def weakacidconc (pH:float, Ka:float=None, pka:float=None) -> float:
@@ -252,7 +263,11 @@ def weakacidconc (pH:float, Ka:float=None, pka:float=None) -> float:
     if pka != None and Ka == None:
         Ka = 10**(-pka)
 
-    return float(((10**(-pH)-10**(-7))*(10**(-pH)+Ka))/Ka)
+    ca = float(((10**(-pH)-10**(-7))*(10**(-pH)+Ka))/Ka)
+    if ca <0:
+        raise ValueError("The concentration calculated is negative, check your inputs")
+
+    return ca 
 
 
 def weakbaseconc (pH:float, Kb:float=None, pka:float=None, Ka:float=None) -> float:
@@ -287,7 +302,11 @@ def weakbaseconc (pH:float, Kb:float=None, pka:float=None, Ka:float=None) -> flo
     
     cOH = 10**(-14)/10**(-pH)
 
-    return float((cOH-10**(-7))/Kb*(cOH + Kb))
+    cb = float((cOH-10**(-7))/Kb*(cOH + Kb))
+    if cb <0:
+        raise ValueError("The concentration calculated is negative, check your inputs")
+
+    return cb
 
 
 if __name__ == "__main__" :
