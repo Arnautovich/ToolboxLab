@@ -29,11 +29,11 @@ def bufferpH (ca:float, cb:float, pka:float=None, Ka:float=None, Kb:float=None) 
         raise Exception("At least one constant must be given")
 
 
-    if pka == None and Ka != None:
+    if pka is None and Ka is not None:
         if Ka <=0:
             raise ValueError("The constant can not be negative or equal to 0")
         pka = -np.log10(Ka)
-    elif pka == None and Kb != None:
+    elif pka is None and Kb is not None:
         if Kb <=0:
             raise ValueError("The constant can not be negative or equal to 0")
         pka = -np.log10(1*10**(-14)/Kb)
@@ -160,7 +160,7 @@ def strongbaseconc (pH:float=None, pOH:float=None) -> float:
     The concentration of strong base needed (mol/L) as float
     '''
 
-    if pOH != None and pH == None:
+    if pOH is not None and pH is None:
         pH = 14 - pOH
     
     cb = float(10**(pH-14) - 10**(-7-pH))
@@ -191,7 +191,7 @@ def weakacidpH (ca:float, Ka:float=None, pka:float=None) -> float:
         raise Exception("At least one constant must be given")
 
 
-    if pka != None and Ka == None:
+    if pka is not None and Ka is None:
         Ka = 10**(-pka)
 
     if ca > 10**(-7):
@@ -227,9 +227,9 @@ def weakbasepH (cb:float, Ka:float=None, pka:float=None, Kb:float=None) -> float
         raise Exception("At least one constant must be given")
 
 
-    if pka != None and Ka == None and Kb == None:
+    if pka is not None and Ka is None and Kb is None:
         Ka = 10**(-pka)
-    elif Kb != None and Ka == None and pka == None:
+    elif Kb is not None and Ka is None and pka is None:
         if Kb <0:
             raise ValueError()
         Ka = 10**(-14)/Kb
@@ -260,7 +260,7 @@ def weakacidconc (pH:float, Ka:float=None, pka:float=None) -> float:
         raise Exception("At least one constant must be given")
 
 
-    if pka != None and Ka == None:
+    if pka is not None and Ka is None:
         Ka = 10**(-pka)
 
     ca = float(((10**(-pH)-10**(-7))*(10**(-pH)+Ka))/Ka)
@@ -295,10 +295,10 @@ def weakbaseconc (pH:float, Kb:float=None, pka:float=None, Ka:float=None) -> flo
         raise Exception("At least one constant must be given")
 
 
-    if pka != None and Kb == None and Ka == None:
+    if pka is not None and Kb is None and Ka is None:
         Kb = 10**(pka-14)
-    elif Ka != None and Kb == None and pka == None:
-        Kb = 10**(-7)/Ka
+    elif Ka is not None and Kb is None and pka is None:
+        Kb = 10**(-14)/Ka
     
     cOH = 10**(-14)/10**(-pH)
 
@@ -310,4 +310,4 @@ def weakbaseconc (pH:float, Kb:float=None, pka:float=None, Ka:float=None) -> flo
 
 
 if __name__ == "__main__" :
-    print("bufferconc", bufferconc(4, None, 0.01, 4.3))
+    print("Value :", weakbaseconc(12, Ka=10**-10))
