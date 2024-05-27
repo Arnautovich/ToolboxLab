@@ -24,37 +24,22 @@ def merge_images_vertically(image_list):
 
     return merged_image
 
-def list_companies(molecule_name, company):
-    images_list = []
+def new_list_companies(molecule_name):
     CAS = resolve_name_to_cas(molecule_name)
-    pdf_url = f"https://www.chemblink.com/MSDS/MSDSFiles/{CAS}{company}.pdf"
+    pdf_url = f"https://www.chemblink.com/MSDS/{CAS}MSDS.htm"
     
     response = requests.get(pdf_url)
-    if response.status_code != 200:
-        return False
-
-    pdf_bytes = response.content
-    images = convert_from_bytes(pdf_bytes)
-
-    for i, image in enumerate(images):
-        images_list.append(image)
-    merged_image = merge_images_vertically(images_list)
-    if merged_image:
-        return True
-    return False
-
-def test_display_pdf_images(molecule_name):
-    successful_companies = []
+    succesful_companies = []
     companies = [
-    "Alfa-Aesar", "Sigma-Aldrich", "TCI", "Acros-Organics", "Matrix",
+    "Sigma-Aldrich", "Alfa-Aesar", "TCI", "Acros-Organics", "Matrix",
     "Strem", "Apollo", "Combi-Blocks", "Oakwood", "Ambeed", "Syn-Quest",
     "Cayman", "Biosnyth", "SRL"
 ]
     for company in companies:
-        success = list_companies(molecule_name, company)
-        if success:
-            successful_companies.append(company)
-    return successful_companies
+        if company in response.text:
+            succesful_companies.append(company)
+    return succesful_companies
+
     
 def display_pdf_images(molecule_name, company):
     images_list = []
@@ -63,22 +48,13 @@ def display_pdf_images(molecule_name, company):
     
     response = requests.get(pdf_url)
     if response.status_code != 200:
-        return 
+        return None
 
     pdf_bytes = response.content
     images = convert_from_bytes(pdf_bytes)
 
     for i, image in enumerate(images):
         images_list.append(image)
+
     merged_image = merge_images_vertically(images_list)
-    if merged_image:
-        merged_image.show()
-    return 
-
-# Example usage
-molecule_name = "L-Glutamine"
-
-# Iterate over each company and test the display_pdf_images function
-successful_companies = test_display_pdf_images(molecule_name)
-print("Succesful companies are :", successful_companies)
-print(display_pdf_images(molecule_name, test_display_pdf_images(molecule_name) ))
+    return merged_image

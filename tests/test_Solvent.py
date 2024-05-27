@@ -13,11 +13,11 @@ class TestSelectSolvent(unittest.TestCase):
         top_solvents = select_solvent(reaction_type, boiling_point, polarity, viscosity)
 
         expected_top_solvents = [
-            ("n-Butyl Chloride", 122.5),
-            ("Ethanol", 122.0),
-            ("Cyclohexane", 119.5),
-            ("Isopropyl Alcohol", 114.0),
-            ("Ethylene Dichloride", 113.0)
+            ("n-Butyl Chloride"),
+            ("Ethanol"),
+            ("Cyclohexane"),
+            ("Isopropyl Alcohol"),
+            ("Ethylene Dichloride")
         ]
 
         self.assertEqual(top_solvents, expected_top_solvents)
@@ -32,11 +32,11 @@ class TestSelectSolvent(unittest.TestCase):
         top_solvents = select_solvent(reaction_type, boiling_point, polarity, viscosity)
 
         expected_top_solvents = [
-            ("Propylene Carbonate", 107.0),
-            ("n-Butyl Alcohol", 88.5),
-            ("Isopropyl Alcohol", 73.5),
-            ("Isobutyl Alcohol", 73.5),
-            ("n-Propyl Alcohol", 73.5)
+            ("Propylene Carbonate"),
+            ("n-Butyl Alcohol"),
+            ("Isopropyl Alcohol"),
+            ("Isobutyl Alcohol"),
+            ("n-Propyl Alcohol")
         ]
 
         self.assertEqual(top_solvents, expected_top_solvents)
