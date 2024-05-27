@@ -17,18 +17,32 @@ with col2:
 
 if comp == "Strong acid" and val == "pH":
     conc = st.number_input("The concentration of your acid [mol/L]:", 0.0, step= 10**(-5), value=None)
-    pH = tp.strongacidpH(conc)
-    st.subheader(f"The pH calculated is {pH}")
+    
+    if conc is not None:
+        pH = tp.strongacidpH(conc)
+
+        st.write(f"You have choosen a concentration of {conc} mol/L")
+
+        st.subheader(f"The pH calculated is {pH:.3f}")
 
 elif comp == "Strong acid" and val == "Concentration":
     pH = st.number_input("The pH of your solution:", step=10**(-5), value=None)
-    conc = tp.strongacidconc(pH)
-    st.subheader(f"The concentration calculated is {conc} [mol/L]")
+    if pH is not None:
+        conc = tp.strongacidconc(pH)
+
+        st.write(f"You have choosen a pH of {pH}")
+
+        st.subheader(f"The concentration calculated is {conc:.3f} [mol/L]")
 
 elif comp == "Strong base" and val == "pH":
     conc = st.number_input("The concentration of your base [mol/L]:", 0.0, step= 10**(-5), value=None)
-    pH = tp.strongbasepH(conc)
-    st.subheader(f"The pH calculated is {pH}")
+
+    if conc is not None:
+        pH = tp.strongbasepH(conc)
+
+        st.write(f"You have choosen a concentration of {conc} mol/L")
+
+        st.subheader(f"The pH calculated is {pH:.3f}")
 
 elif comp == "Strong base" and val == "Concentration":
     sel = st.selectbox("which scale are you using ?", ["pH", "pOH"])
@@ -40,8 +54,12 @@ elif comp == "Strong base" and val == "Concentration":
     else:
         pOH = st.number_input("The pOH of your solution:", step=10**(-5), value=None)
     
-    conc = tp.strongbaseconc(pH=pH, pOH=pOH)
-    st.subheader(f"The concentration calculated is {conc} [mol/L]")
+    if pH is not None or pOH is not None:
+        conc = tp.strongbaseconc(pH=pH, pOH=pOH)
+
+        st.write(f"You have choosen a pH of {pH}{' and a pOH of ' + str(pOH) if pOH is not None else ''}")
+
+        st.subheader(f"The concentration calculated is {conc:.3f} [mol/L]")
 
 elif comp == "Weak acid" and val == "pH":
     conc = st.number_input("The concentration of your acid [mol/L]:", 0.0, step= 10**(-5), value=None)
@@ -54,9 +72,12 @@ elif comp == "Weak acid" and val == "pH":
     else:
         pka = st.number_input("The pKa of your acid:", step=10**(-14), value=None)
     
-    pH = tp.weakacidpH(conc, Ka=ka, pka=pka)
+    if conc is not None and (ka is not None or pka is not None):
+        pH = tp.weakacidpH(conc, Ka=ka, pka=pka)
 
-    st.subheader(f"The pH calculated is {pH}")
+        st.write(f"You have choosen a concentration of {conc} mol/L and a {sel} of {ka if ka is not None else pka if pka is not None else None}")
+
+        st.subheader(f"The pH calculated is {pH:.3f}")
 
 elif comp == "Weak acid" and val == "Concentration":
     pH = st.number_input("The pH of your solution:", step=10**(-5), value=None)
@@ -69,9 +90,12 @@ elif comp == "Weak acid" and val == "Concentration":
     else:
         pka = st.number_input("The pKa of your acid:", step=10**(-14), value=None)
     
-    conc = tp.weakacidconc(pH, Ka=ka, pka=pka)
+    if pH is not None and (ka is not None or pka is not None):
+        conc = tp.weakacidconc(pH, Ka=ka, pka=pka)
 
-    st.subheader(f"The concentration of your acid is {conc} [mol/L]")
+        st.write(f"You have choosen a pH of {pH} and a {sel} of {ka if ka is not None else pka if pka is not None else None}")
+
+        st.subheader(f"The concentration calculated is {conc:.3f} [mol/L]")
 
 elif comp == "Weak base" and val == "pH":
     conc = st.number_input("The concentration of your base [mol/L]:", 0.0, step= 10**(-5), value=None)
@@ -86,9 +110,13 @@ elif comp == "Weak base" and val == "pH":
     else:
         kb = st.number_input("The Kb of your base:", step=10**(-14), value=None, help="You can use this notation for power of 10 : xey = x*10^y")
     
-    pH = tp.weakbasepH(conc, Ka=ka, pka=pka, Kb=kb)
+    if conc is not None and (ka is not None or pka is not None or kb is not None):
 
-    st.subheader(f"The pH calculated is {pH}")
+        pH = tp.weakbasepH(conc, Ka=ka, pka=pka, Kb=kb)
+
+        st.write(f"You have choosen a concentration of {conc} mol/L and a {sel} of {ka if ka is not None else pka if pka is not None else kb if kb is not None else None}")
+
+        st.subheader(f"The pH calculated is {pH:.3f}")  
 
 elif comp == "Weak base" and val == "Concentration":
     pH = st.number_input("The pH of your solution:", step=10**(-5), value=None)
@@ -103,9 +131,12 @@ elif comp == "Weak base" and val == "Concentration":
     else:
         ka = st.number_input("The Ka of your base:", step=10**(-14), value=None, help="You can use this notation for power of 10 : xey = x*10^y")
 
-    conc = tp.weakbaseconc(pH, Kb=kb, pka=pka, Ka=ka)
+    if pH is not None and (kb is not None or pka is not None or ka is not None):
+        conc = tp.weakbaseconc(pH, Kb=kb, pka=pka, Ka=ka)
 
-    st.subheader(f"The concentration of your base is {conc}")
+        st.write(f"You have choosen a pH of {pH} and a {sel} of {kb if kb is not None else pka if pka is not None else ka if ka is not None else None}")
+
+        st.subheader(f"The concentration of your base is {conc:.3f} [mol/L]")
 
 elif comp == "Buffer solution" and val =="pH":
     ca = st.number_input("The concentration of your acid [mol/L]:", 0.0, step= 10**(-5), value=None)
@@ -116,15 +147,22 @@ elif comp == "Buffer solution" and val =="pH":
 
     if sel == "pKa":
         pka = st.number_input("The pKa of your couple acid/base:", step=10**(-5), value=None)
-        pH = tp.bufferpH(ca=ca, cb=cb, pka=pka)
+        if pka is not None and (ca is not None and cb is not None):
+            pH = tp.bufferpH(ca=ca, cb=cb, pka=pka)
     elif sel == "Ka":
         ka = st.number_input("The Ka of your couple acid/base:", step=10**(-14), value=None, help="You can use this notation for power of 10 : xey = x*10^y")
-        pH = tp.bufferpH(ca=ca, cb=cb, Ka=ka)
+        if ka is not None and (ca is not None and cb is not None):
+            pH = tp.bufferpH(ca=ca, cb=cb, Ka=ka)
     else:
         kb = st.number_input("The Kb of your couple acid/base:", step=10**(-14), value=None, help="You can use this notation for power of 10 : xey = x*10^y")
-        pH = tp.bufferpH(ca=ca, cb=cb, Kb=kb)
+        if kb is not None and (ca is not None and cb is not None):
+            pH = tp.bufferpH(ca=ca, cb=cb, Kb=kb)
+
+    if ca is not None and cb is not None and (pka is not None or ka is not None or kb is not None):
+
+        st.write(f"You have choosen a concentration of {ca} mol/L and {cb} mol/L and a {sel} of {pka if pka is not None else ka if ka is not None else kb if kb is not None else None}")
     
-    st.subheader(f"The pH calculated is {pH:.2f}")
+        st.subheader(f"The pH calculated is {pH:.3f}")
 
 elif comp == "Buffer solution" and val == "Concentration":
     ca, cb = None, None
@@ -146,7 +184,8 @@ elif comp == "Buffer solution" and val == "Concentration":
     else:
         kb = st.number_input("The Kb of your couple acid/base:", step=10**(-14), value=None, help="You can use this notation for power of 10 : xey = x*10^y")
     
-    conc = tp.bufferconc(pH=pH, ca=ca, cb=cb, pka=pka, Ka=ka, Kb=kb)
+    if pH is not None and (ca is not None or cb is not None) and (pka is not None or ka is not None or kb is not None):
+        conc = tp.bufferconc(pH=pH, ca=ca, cb=cb, pka=pka, Ka=ka, Kb=kb)
 
-    st.write(f"You have choosen to calculate the missing {sel1} in a buffer solution with a pH of {pH} and a {sel2} of {pka if pka is not None else ka if ka is not None else kb if kb is not None else None}")
-    st.subheader(f"The missing {sel1} is {conc:.3f} mol/L")
+        st.write(f"You have choosen to calculate the missing {sel1} with a pH of {pH} and a {sel2} of {pka if pka is not None else ka if ka is not None else kb if kb is not None else None}")
+        st.subheader(f"The missing {sel1} is {conc:.3f} mol/L")

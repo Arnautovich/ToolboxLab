@@ -310,4 +310,4 @@ def weakbaseconc (pH:float, Kb:float=None, pka:float=None, Ka:float=None) -> flo
 
 
 if __name__ == "__main__" :
-    print("Value :", weakbaseconc(12, Ka=10**-10))
+    pass
