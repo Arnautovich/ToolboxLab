@@ -21,3 +21,4 @@ if reac != "":
              - H bond donor / acceptor count is the number of hydrogen bonds that can be donated or accepted by the molecule  
              - XlogP is the partition coefficient of the molecule between n-octanol and water
              ''')
+# modifier coef stochiometrique 

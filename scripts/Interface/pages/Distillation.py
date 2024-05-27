@@ -26,6 +26,7 @@ with col2:
 
 number, fig = distillation(F=F, xD=xD, R=R, z=z, q=q, alpha=alpha, xB=xB, D=D)
 
+st.write(f"The values selected are: z = {z}, xD = {xD}, R = {R}, q = {q}, alpha = {alpha} {' and xB = ' + str(xB) if tog else ', D = ' + str(D) + ' and F = ' + str(F)}")
 st.subheader(f"The number of distillation states needed are {number}")
 fig 
 
