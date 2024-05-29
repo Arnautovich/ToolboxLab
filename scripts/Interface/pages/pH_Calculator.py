@@ -1,5 +1,6 @@
 import streamlit as st
 import Toolbox.pH as tp
+from math import floor, log10
 
 st.header("pH Calculator")
 
@@ -32,7 +33,7 @@ elif comp == "Strong acid" and val == "Concentration":
 
         st.write(f"You have choosen a pH of {pH}")
 
-        st.subheader(f"The concentration calculated is {conc:.3f} [mol/L]")
+        st.subheader(f"The concentration calculated is {round(conc, -int(floor(log10(abs(conc))))+3)} [mol/L]")
 
 elif comp == "Strong base" and val == "pH":
     conc = st.number_input("The concentration of your base [mol/L]:", 0.0, step= 10**(-5), value=None)
@@ -59,7 +60,7 @@ elif comp == "Strong base" and val == "Concentration":
 
         st.write(f"You have choosen a pH of {pH}{' and a pOH of ' + str(pOH) if pOH is not None else ''}")
 
-        st.subheader(f"The concentration calculated is {conc:.3f} [mol/L]")
+        st.subheader(f"The concentration calculated is {round(conc, -int(floor(log10(abs(conc))))+3)} [mol/L]")
 
 elif comp == "Weak acid" and val == "pH":
     conc = st.number_input("The concentration of your acid [mol/L]:", 0.0, step= 10**(-5), value=None)
@@ -95,7 +96,7 @@ elif comp == "Weak acid" and val == "Concentration":
 
         st.write(f"You have choosen a pH of {pH} and a {sel} of {ka if ka is not None else pka if pka is not None else None}")
 
-        st.subheader(f"The concentration calculated is {conc:.3f} [mol/L]")
+        st.subheader(f"The concentration calculated is {round(conc, -int(floor(log10(abs(conc))))+3)} [mol/L]")
 
 elif comp == "Weak base" and val == "pH":
     conc = st.number_input("The concentration of your base [mol/L]:", 0.0, step= 10**(-5), value=None)
@@ -136,7 +137,7 @@ elif comp == "Weak base" and val == "Concentration":
 
         st.write(f"You have choosen a pH of {pH} and a {sel} of {kb if kb is not None else pka if pka is not None else ka if ka is not None else None}")
 
-        st.subheader(f"The concentration of your base is {conc:.3f} [mol/L]")
+        st.subheader(f"The concentration of your base is {round(conc, -int(floor(log10(abs(conc))))+3)} [mol/L]")
 
 elif comp == "Buffer solution" and val =="pH":
     ca = st.number_input("The concentration of your acid [mol/L]:", 0.0, step= 10**(-5), value=None)
@@ -188,4 +189,4 @@ elif comp == "Buffer solution" and val == "Concentration":
         conc = tp.bufferconc(pH=pH, ca=ca, cb=cb, pka=pka, Ka=ka, Kb=kb)
 
         st.write(f"You have choosen to calculate the missing {sel1} with a pH of {pH} and a {sel2} of {pka if pka is not None else ka if ka is not None else kb if kb is not None else None}")
-        st.subheader(f"The missing {sel1} is {conc:.3f} mol/L")
+        st.subheader(f"The missing {sel1} is {round(conc, -int(floor(log10(abs(conc))))+3)} mol/L")

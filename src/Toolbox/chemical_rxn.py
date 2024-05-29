@@ -190,7 +190,7 @@ class equation:
         return dataframe
     
 
-def tokenize(expression:str, op_l:list = ["->", " +"])->list:
+def tokenize(expression:str, op_l:list = ["->", "+"])->list:
     '''
     This function tokenizes a chemical reaction expression. The input parameters are:
     - expression: the chemical reaction expression
@@ -279,11 +279,17 @@ def gauss_elimination(Y:np.ndarray,x:np.ndarray)->np.ndarray:
     A = np.copy(Y).astype(float)
     b = np.copy(x).astype(float)
 
-    if A.shape[0] != A.shape[1]:
+
+    while A.shape[0] < A.shape[1]:
         add = np.zeros(A.shape[1])
         A = np.vstack((A, add))
         b = np.append(b, 0)
-        
+
+    while A.shape[0] > A.shape[1]:
+        add = np.zeros(A.shape[0])
+        A = np.hstack((A, add.reshape(-1,1)))
+
+
     A = permute(A)
 
     for i in range(A.shape[0]):
@@ -296,6 +302,8 @@ def gauss_elimination(Y:np.ndarray,x:np.ndarray)->np.ndarray:
 
                 b[j] += fact*b[i]
         A = permute(A)
+
+
 
 
     for i in range(A.shape[0]):
@@ -325,6 +333,7 @@ def gauss_elimination(Y:np.ndarray,x:np.ndarray)->np.ndarray:
 
 
 if __name__ == "__main__":
-    A = np.array([[1, 2, 3], [10, 5, 6], [2,4,6]])
-    B = np.array([0, 0, 0])
-    print(gauss_elimination(A, B))
+    print(tokenize("NaOH + HCl -> NaCl + H2O"))
+    print(tokenize("NaOH+ HCl -> NaCl +H2O"))
+    
+    #print(equation("NaCl+H2SO4->NaHSO4+HCl").get_reaction_properties())
