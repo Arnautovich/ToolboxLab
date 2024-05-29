@@ -27,7 +27,7 @@ Three authors contributed to this project:
 
 - **Distillation Calculations**: Calculate the needed number of stages and generate McCabe-Thiele diagrams for distillation processes.
 - **Chemical Reaction**: Determine the stoichiometric coefficients based on a given reaction string and retrieve properties of the products and reactants.
-- **Acid/Base Calculations**: Calculate the pH or concentration of acids and bases in solutions.
+- **pH Calculator**: Calculate the pH or concentration of acids and bases in solutions.
 - **Liquid-Liquid Extraction (LLE)**: Calculate the number of stages for both counter-flow and cross-flow LLE processes.
 - **pH Calculations**: Perform pH calculations
 - **Boiling Point Determination**: Estimate the boiling points of compounds at different pressure
