@@ -60,6 +60,7 @@ pip install scipy
 pip install typing
 pip install chemicals
 pip install pdf2image
+pip install requests
 ```
 ## Usage
 For an example of the utilization of each function, please refer to the [jupyter notebook](https://github.com/Arnautovich/Toolbox/blob/main/notebooks/project_report.ipynb)
