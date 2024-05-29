@@ -50,7 +50,7 @@ cd /to_dir/
 pip install .
 ```
 
-## Requirements
+## Requirements 📝
 To use the safety-datasheet function, poppler should be installed according to the documentation found on their [website](https://pdf2image.readthedocs.io/en/latest/installation.html). For macOS users, it is also necessary to download [Homebrew](https://brew.sh) to install Poppler.
 
 When installing the Toolbox package, the necessary dependencies should be installed automatically. However, if the dependencies are not installed as expected, please ensure you manually install the following packages by executing the corresponding commands:
@@ -65,10 +65,10 @@ pip install chemicals
 pip install pdf2image
 pip install requests
 ```
-## Usage
+## Usage 🚀
 For an example of the utilization of each function, please refer to the [jupyter notebook](https://github.com/Arnautovich/Toolbox/blob/main/notebooks/project_report.ipynb)
 
-### Interface
+### Interface 🌐
 This project also has an interface-based UI to interact with the functions. To run the interface, make sure that **streamlit** package was installed when installing **ToolboxLab** or install it by
 ```
 pip install streamlit
@@ -78,9 +78,9 @@ Then go to the directory where you cloned the repository and launch the **run.py
 <img width="1511" alt="Home_Page" src="https://github.com/Arnautovich/ToolboxLab/assets/132769698/44e5f00b-fc39-46e6-bf09-31fed85496ba">
 
 
-## License
+## License 📜
 
 This project is licensed under the **MIT License** - see the [LICENSE file](https://github.com/Arnautovich/ToolboxLab/blob/main/LICENSE) for details.
 
-## Contact
+## Contact ✉️
 For any questions or issues, please open an issue on GitHub [![open an issue](https://custom-icon-badges.demolab.com/badge/-Open%20Issue-palegreen?style=for-the-badge&logoColor=black&logo=issue-opened)](https://github.com/Arnautovich/Toolbox/issues)
