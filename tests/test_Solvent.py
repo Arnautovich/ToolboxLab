@@ -1,7 +1,6 @@
 import unittest
 from Toolbox.Solvent import select_solvent
 
-#version chatgpt
 
 class TestSelectSolvent(unittest.TestCase):
     
@@ -26,7 +25,6 @@ class TestSelectSolvent(unittest.TestCase):
     def test_invalid_reaction_type(self):
         result = select_solvent("InvalidReaction", 70, 4, 1)
         self.assertEqual(len(result), 5)
-        # Check if function returns any valid solvents despite invalid reaction type
 
     def test_edge_case_boiling_point(self):
         result = select_solvent("SN1", 0, 5, 1)
