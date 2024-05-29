@@ -36,6 +36,7 @@ class TestStringMethods(unittest.TestCase):
     def test_enriching_operating_line(self):
         self.assertEqual(enriching_operating_line(R=1.5, x=0.5, xD=0.5), 0.5)
         self.assertEqual(enriching_operating_line(R=1.5, x=np.linspace(0,100,1), xD=0.5), 0.6*np.linspace(0,100,1)+0.2)
+        
 
    
 if __name__ == '__main__':
