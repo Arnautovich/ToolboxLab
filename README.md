@@ -19,10 +19,10 @@
 
 ## Authors
 Three authors contributed to this project:
-- **Bruno Gonçalves Oliveira**, BSc in chemistry and chemical engineering at **[EPFL](https://www.epfl.ch)**   [![alt text](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/BrunoGonOli)
+- **Bruno Gonçalves Oliveira**, 🧑‍🎓 BSc in chemistry and chemical engineering at **[EPFL](https://www.epfl.ch)**   [![alt text](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/BrunoGonOli)
 
-- **Arnau Casalprim Perez**, BSc in chemistry and chemical engineering at **[EPFL](https://www.epfl.ch)**   [![alt text](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Arnautovich)
-- **Nicolas Jenni**, BSc in chemistry and chemical engineering at **[EPFL](https://www.epfl.ch)**   [![alt text](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Nicolas-jnn)
+- **Arnau Casalprim Perez**, 👨‍🎓 BSc in chemistry and chemical engineering at **[EPFL](https://www.epfl.ch)**   [![alt text](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Arnautovich)
+- **Nicolas Jenni**, 👨‍🎓 BSc in chemistry and chemical engineering at **[EPFL](https://www.epfl.ch)**   [![alt text](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Nicolas-jnn)
 ## Features
 
 - **Distillation Calculations**: Calculate the needed number of stages and generate McCabe-Thiele diagrams for distillation processes.
