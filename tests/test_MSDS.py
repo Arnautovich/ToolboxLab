@@ -2,7 +2,7 @@ import unittest
 import requests
 from pdf2image import convert_from_bytes
 from PIL import Image
-from Toolbox.MSDS_2 import resolve_name_to_cas, merge_images_vertically, display_pdf_images
+from Toolbox.MSDS import resolve_name_to_cas, merge_images_vertically, display_pdf_images
 
 class TestChemistryUtils(unittest.TestCase):
 
