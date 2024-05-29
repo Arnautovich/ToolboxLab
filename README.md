@@ -8,7 +8,7 @@
 
 ## Overview
 
-Toolbox is a Python package designed to assist chemical engineers and chemists with essential calculations in various domains such as distillation, reaction stoichiometry, acid/base chemistry, and liquid-liquid extraction (LLE). The package provides robust functions to simplify complex calculations and visualize key processes.
+**ToolboxLab** is a Python package designed to assist chemical engineers and chemists with essential calculations and automation in various domains such as distillation, reaction stoichiometry, acid/base chemistry, liquid-liquid extraction (LLE), pH calculations, boiling point determination, molecular properties and safety concerns extraction, and a solvent ranking system. The package provides robust functions to simplify complex calculations and visualize key processes.
 
 ## Authors
 Three authors contributed to this project:
@@ -22,6 +22,10 @@ Three authors contributed to this project:
 - **Stoichiometric Coefficients**: Determine the stoichiometric coefficients based on a given reaction string and retrieve properties of the products and reactants.
 - **Acid/Base Calculations**: Calculate the pH or concentration of acids and bases in solutions.
 - **Liquid-Liquid Extraction (LLE)**: Calculate the number of stages for both counter-flow and cross-flow LLE processes.
+- **pH Calculations**: Perform pH calculations
+- **Boiling Point Determination**: Estimate the boiling points of compounds at different pressure
+- **Molecular Properties and Safety Data Extraction**: Retrieve detailed molecular properties and safety data sheets (SDS) for chemicals.
+- **Solvent Ranking System**: Rank solvents based on given specific properties (boiling point, polarity, viscosity) and the type of reaction that want to be performed
 
 ## Installation
 The package **Toolbox** can be easily installed using pip, the package installer for Python. This package requires a Python version newer or equal to version **3.10.14**. Open your terminal or command prompt and run the following command:
@@ -37,6 +41,8 @@ pip install .
 ```
 
 ## Requirements
+To use the safety-datasheet function, poppler should be installed according to the documentation found on their [website](https://pdf2image.readthedocs.io/en/latest/installation.html). For macOS users, it is also necessary to download [Homebrew](https://brew.sh) to install Poppler.
+
 When installing the Toolbox package, the necessary dependencies should be installed automatically. However, if the dependencies are not installed as expected, please ensure you manually install the following packages by executing the corresponding commands:
 ```
 pip install matplotlib
@@ -49,19 +55,19 @@ pip install chemicals
 pip install pdf2image
 ```
 ## Usage
-For an example of the utilisation of each function please refer to the [jupyter notebook](https://github.com/Arnautovich/Toolbox/blob/main/notebooks/project_report.ipynb)
+For an example of the utilization of each function, please refer to the [jupyter notebook](https://github.com/Arnautovich/Toolbox/blob/main/notebooks/project_report.ipynb)
 
 ### Interface
-This project also have an interface based UI to interact with the functions. To lunch the interface make sure you installed **streamlit** package or install it by
+This project also has an interface-based UI to interact with the functions. To run the interface make sure you installed **streamlit** package or install it by
 ```
 pip install streamlit
 ```
-Then go to the directory where you cloned the repository and lunch the **run.py** file.
+Then go to the directory where you cloned the repository and launch the **run.py** file that is in the [scripts](https://github.com/Arnautovich/ToolboxLab/tree/main/scripts) folder.
 
 
 ## License
 
-This project is licensed under the **MIT License** - see the LICENSE file for details.
+This project is licensed under the **MIT License** - see the [LICENSE file](https://github.com/Arnautovich/ToolboxLab/blob/main/LICENSE) for details.
 
 ## Contact
 For any questions or issues, please open an issue on GitHub[![open an issue](https://custom-icon-badges.demolab.com/badge/-Open%20Issue-palegreen?style=for-the-badge&logoColor=black&logo=issue-opened)](https://github.com/Arnautovich/Toolbox/issues)
