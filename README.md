@@ -33,7 +33,7 @@ Three authors contributed to this project:
 - **Molecular Properties and Safety Data Extraction**: Retrieve detailed molecular properties and safety data sheets (MSDS) for chemicals.
 - **Solvent Ranking System**: Rank solvents based on given specific properties (boiling point, polarity, viscosity) and the type of reaction that want to be performed
 
-## Installation
+## Installation 💻
 The package **Toolbox** can be easily installed using pip, the package installer for Python. This package requires a Python version newer or equal to version **3.10.14**. Open your terminal or command prompt and run the following command:
 ```
 pip install git+https://github.com/Arnautovich/ToolboxLab.git
