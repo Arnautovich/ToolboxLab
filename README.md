@@ -29,9 +29,8 @@ Three authors contributed to this project:
 - **Chemical Reaction**: Determine the stoichiometric coefficients based on a given reaction string and retrieve properties of the products and reactants.
 - **pH Calculator**: Calculate the pH or concentration of acids and bases in solutions.
 - **Liquid-Liquid Extraction (LLE)**: Calculate the number of stages for both counter-flow and cross-flow LLE processes.
-- **pH Calculations**: Perform pH calculations
 - **Boiling Point Determination**: Estimate the boiling points of compounds at different pressure
-- **Molecular Properties and Safety Data Extraction**: Retrieve detailed molecular properties and safety data sheets (SDS) for chemicals.
+- **Molecular Properties and Safety Data Extraction**: Retrieve detailed molecular properties and safety data sheets (MSDS) for chemicals.
 - **Solvent Ranking System**: Rank solvents based on given specific properties (boiling point, polarity, viscosity) and the type of reaction that want to be performed
 
 ## Installation
