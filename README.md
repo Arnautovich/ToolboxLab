@@ -9,7 +9,7 @@
 </p>--->
 
 <p align="center">
-<img width="500" src="https://github.com/Nicolas-jnn/host/blob/main/logo2.png">
+<img width="500" src="https://github.com/Arnautovich/ToolboxLab/assets/132769698/ce5efe17-79a6-4fc1-b8b3-b1a405cd1c28">
 </p>
 
 
