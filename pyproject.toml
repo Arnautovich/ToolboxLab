@@ -31,7 +31,7 @@ authors = [
 dynamic = ["version"]
 
 [project.urls]
-source = "https://github.com/Arnautovich/Toolbox.git"
+source = "https://github.com/Arnautovich/ToolboxLab"
 
 [tool.hatch.version]
 path = "src/Toolbox/__init__.py"

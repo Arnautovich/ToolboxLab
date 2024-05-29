@@ -1,9 +1,16 @@
 # ToolboxLab
-
 [![alt text](https://img.shields.io/badge/Python-14354C?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org)
 [![alt text](https://camo.githubusercontent.com/d9715378ddbf6b262203f7c27f12eeb6a7caa3b85a56cc980dbb2648753d526c/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f4a7570797465722d4633373632362e7376673f267374796c653d666f722d7468652d6261646765266c6f676f3d4a757079746572266c6f676f436f6c6f723d707572706c65)](https://jupyter.org)
 [![license](https://img.shields.io/badge/License-MIT-ac8b11.svg?style=for-the-badge&labelColor=yellow)](https://github.com/Arnautovich/Toolbox/blob/main/LICENSE)
 [![open an issue](https://custom-icon-badges.demolab.com/badge/-Open%20Issue-palegreen?style=for-the-badge&logoColor=black&logo=issue-opened)](https://github.com/Arnautovich/Toolbox/issues)
+
+<!---<p align="center">
+<img width="500" src="https://github.com/Nicolas-jnn/host/blob/main/Logo.png">
+</p>--->
+
+<p align="center">
+<img width="500" src="https://github.com/Arnautovich/ToolboxLab/assets/132769698/ce5efe17-79a6-4fc1-b8b3-b1a405cd1c28">
+</p>
 
 
 ## Overview
@@ -53,16 +60,19 @@ pip install scipy
 pip install typing
 pip install chemicals
 pip install pdf2image
+pip install requests
 ```
 ## Usage
 For an example of the utilization of each function, please refer to the [jupyter notebook](https://github.com/Arnautovich/Toolbox/blob/main/notebooks/project_report.ipynb)
 
 ### Interface
-This project also has an interface-based UI to interact with the functions. To run the interface make sure you installed **streamlit** package or install it by
+This project also has an interface-based UI to interact with the functions. To run the interface, make sure that **streamlit** package was installed when installing **ToolboxLab** or install it by
 ```
 pip install streamlit
 ```
-Then go to the directory where you cloned the repository and launch the **run.py** file that is in the [scripts](https://github.com/Arnautovich/ToolboxLab/tree/main/scripts) folder.
+Then go to the directory where you cloned the repository and launch the **run.py** file that is in the [scripts](https://github.com/Arnautovich/ToolboxLab/tree/main/scripts) folder. Upon execution, you should arrive at the homepage shown below, where you can select the application you wish to use.
+
+<img width="1511" alt="Home_Page" src="https://github.com/Arnautovich/ToolboxLab/assets/132769698/44e5f00b-fc39-46e6-bf09-31fed85496ba">
 
 
 ## License
