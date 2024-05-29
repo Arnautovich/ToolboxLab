@@ -79,4 +79,4 @@ Then go to the directory where you cloned the repository and launch the **run.py
 This project is licensed under the **MIT License** - see the [LICENSE file](https://github.com/Arnautovich/ToolboxLab/blob/main/LICENSE) for details.
 
 ## Contact
-For any questions or issues, please open an issue on GitHub[![open an issue](https://custom-icon-badges.demolab.com/badge/-Open%20Issue-palegreen?style=for-the-badge&logoColor=black&logo=issue-opened)](https://github.com/Arnautovich/Toolbox/issues)
+For any questions or issues, please open an issue on GitHub [![open an issue](https://custom-icon-badges.demolab.com/badge/-Open%20Issue-palegreen?style=for-the-badge&logoColor=black&logo=issue-opened)](https://github.com/Arnautovich/Toolbox/issues)
