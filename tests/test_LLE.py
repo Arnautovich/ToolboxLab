@@ -22,6 +22,7 @@ class TestStringMethods(unittest.TestCase):
             LLE_cross_flow(R=100, E=100, x0= 0.018, xN=0.002, y_in=0, kD='1.6')
 
 
+
     def test_lle_counter(self):
         self.assertEqual(lle(R=100, E=80, x0= 0.018, xN=0.002, yN_1=0, kD=1.6)[1], 5)
         self.assertEqual(lle(R=100, E=80, x0= 0.02, xN=0.005, yN_1=0.001, kD=1.1)[1], 6)
