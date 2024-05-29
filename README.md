@@ -15,7 +15,7 @@
 
 ## Overview
 
-**ToolboxLab** is a Python package designed to assist chemical engineers and chemists with essential calculations and automation in various domains such as distillation, reaction stoichiometry, acid/base chemistry, liquid-liquid extraction (LLE), pH calculations, boiling point determination, molecular properties and safety concerns extraction, and a solvent ranking system. The package provides robust functions to simplify complex calculations and visualize key processes.
+**ToolboxLab** 🧪 is a Python package designed to assist chemical engineers and chemists with essential calculations and automation in various domains such as distillation, reaction stoichiometry, acid/base chemistry, liquid-liquid extraction (LLE), pH calculations, boiling point determination, molecular properties and safety concerns extraction, and a solvent ranking system. The package provides robust functions to simplify complex calculations and visualize key processes.
 
 ## Authors
 Three authors contributed to this project:
