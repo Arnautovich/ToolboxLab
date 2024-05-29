@@ -118,5 +118,3 @@ def select_solvent(reaction_type, boiling_point, polarity, viscosity):
     sorted_solvents = sorted(scores, key=lambda x: x[1], reverse=True)
 
     return sorted_solvents[:5]
-
-print(select_solvent("Recrystallization",150, 6, 2.5))

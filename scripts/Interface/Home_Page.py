@@ -7,6 +7,9 @@ path_img1 = str(path) + '/images/dist_img.png'
 path_img2 = str(path) + '/images/chem_img.png'
 path_img3 = str(path) + '/images/PH_img.png'
 path_img4 = str(path) + '/images/lle_img.png'
+path_img5 = str(path) + '/images/pressure.png'
+path_img6 = str(path) + '/images/msds.png'
+path_img7 = str(path) + '/images/solvent.png'
 
 col1, col2 = st.columns(2)
 
@@ -64,7 +67,7 @@ with col1:
     )
     st.markdown("<p style='text-align: center;'> This app calculates the pH of a solution given some information about the solution.<br />&nbsp;</p>", unsafe_allow_html=True)
 
-    st.image(path_img3, use_column_width=True)
+    st.image(path_img5, use_column_width=True)
 
     st.markdown(f'''<h3 style='text-align: center;'><a href="{app_path}/{page5}" target="_self">Boiling Point at new Pressure</a></h3>''',
     unsafe_allow_html=True)
@@ -81,7 +84,7 @@ with col1:
     )
     st.markdown("<p style='text-align: center;'> This app calculates the boiling point of a liquid at a new pressure.<br />&nbsp;</p>", unsafe_allow_html=True)
     
-    st.image(path_img3, use_column_width=True)
+    st.image(path_img7, use_column_width=True)
 
     st.markdown(f'''<h3 style='text-align: center;'><a href="{app_path}/{page7}" target="_self">Solvent Determination</a></h3>''',
     unsafe_allow_html=True)
@@ -96,7 +99,7 @@ with col1:
         </style>
         ''', unsafe_allow_html=True
     )
-    st.markdown("<p style='text-align: center;'> This app fits the best solvent ???.<br />&nbsp;</p>", unsafe_allow_html=True)
+    st.markdown("<p style='text-align: center;'> This app rank solvent depending on their application to suit the desired properties the best.<br />&nbsp;</p>", unsafe_allow_html=True)
     
 
 with col2:
@@ -137,7 +140,7 @@ with col2:
     
     st.markdown("<p style='text-align: center;'>This app calculates the number of stages needed for a liquid-liquid extraction process.<br />&nbsp;</p>", unsafe_allow_html=True)
 
-    st.image(path_img3, use_column_width=True)
+    st.image(path_img6, use_column_width=True)
 
     st.markdown(f'''<h3 style='text-align: center;'><a href="{app_path}/{page6}" target="_self">Molecule Properties and MSDS</a></h3>''',
     unsafe_allow_html=True)
@@ -152,5 +155,5 @@ with col2:
         </style>
         ''', unsafe_allow_html=True)
     
-    st.markdown("<p style='text-align: center;'>This app contains some usefull functions for chemical engineering.<br />&nbsp;</p>", unsafe_allow_html=True)
+    st.markdown("<p style='text-align: center;'>This app display some properties and the safety data-sheet for a molectule.<br />&nbsp;</p>", unsafe_allow_html=True)
     
