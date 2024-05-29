@@ -32,7 +32,7 @@ if reaction_picked != None and boiling_point != None and polarity != None and vi
 
     datab = pd.DataFrame(result, index=[1,2,3,4,5], columns=["Name", "Score"])
 
-    st.write(f"The 5 best solvents for {reaction_picked} are :")
+    st.write(f"The 5 best solvents for {reaction_picked} reaction are :")
     st.dataframe(datab)
     st.write("The 'Score' column uses an arbitrary unit to classify coumpounds  ")
     st.write('''The solvents are picked from this list :  
