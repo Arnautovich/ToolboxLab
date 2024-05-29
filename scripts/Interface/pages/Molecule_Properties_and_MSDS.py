@@ -17,6 +17,9 @@ if name != None:
     nbre = el.atoms_nb
     cas = tp.resolve_name_to_cas(molecule_name=name)
 
+    if "[" in smile:
+        smile = smile.replace("[", "\[")
+
     st.write(f'''The **SMILE** of {name} is: {smile}  
     The **CAS** number is: {cas}  
     The atom list is: {nbre}  
@@ -57,4 +60,3 @@ if name != None:
     sec = ms2.display_pdf_images(molecule_name=name, company=company)
     if sec is not None:
         st.image(sec)
-

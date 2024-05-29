@@ -16,7 +16,7 @@ def resolve_name_to_cas(molecule_name):
     end = response.text.find("," ,start)
 
     if "html" in response.text[start: end]:
-        raise ValueError("The molecule name is not found. Try to put the entire name of the molecule. If it still doesn't work, maybe this molecule is not supported by the package: Chemicals")
+        raise ValueError("The molecule name is not found. Try to put the entire name of the molecule. If it still doesn't work, maybe this molecule is not in the CAS database")
 
     return response.text[start: end]
 
