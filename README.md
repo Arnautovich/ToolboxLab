@@ -66,11 +66,13 @@ pip install requests
 For an example of the utilization of each function, please refer to the [jupyter notebook](https://github.com/Arnautovich/Toolbox/blob/main/notebooks/project_report.ipynb)
 
 ### Interface
-This project also has an interface-based UI to interact with the functions. To run the interface make sure you installed **streamlit** package or install it by
+This project also has an interface-based UI to interact with the functions. To run the interface, make sure that **streamlit** package was installed when installing **ToolboxLab** or install it by
 ```
 pip install streamlit
 ```
-Then go to the directory where you cloned the repository and launch the **run.py** file that is in the [scripts](https://github.com/Arnautovich/ToolboxLab/tree/main/scripts) folder.
+Then go to the directory where you cloned the repository and launch the **run.py** file that is in the [scripts](https://github.com/Arnautovich/ToolboxLab/tree/main/scripts) folder. Upon execution, you should arrive at the homepage shown below, where you can select the application you wish to use.
+
+<img width="1511" alt="Home_Page" src="https://github.com/Arnautovich/ToolboxLab/assets/132769698/44e5f00b-fc39-46e6-bf09-31fed85496ba">
 
 
 ## License
