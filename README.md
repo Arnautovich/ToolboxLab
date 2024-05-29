@@ -41,8 +41,12 @@ pip install git+https://github.com/Arnautovich/ToolboxLab.git
 
 It can also be installed locally.
 ```
-cd /to_dir/
 git clone https://github.com/Arnautovich/ToolboxLab.git
+```
+```
+cd /to_dir/
+```
+```
 pip install .
 ```
 
