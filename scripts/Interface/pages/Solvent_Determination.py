@@ -34,6 +34,51 @@ if reaction_picked != None and boiling_point != None and polarity != None and vi
 
     st.write(f"The 5 best solvents for {reaction_picked} are :")
     st.dataframe(datab)
-    st.write("The 'Score' column uses an arbitrary unit to classify coumpounds")
+    st.write("The 'Score' column uses an arbitrary unit to classify coumpounds  ")
+    st.write('''The solvents are picked from this list :  
+- Water  
+- Ethanol  
+- Diethyl ether  
+- Pentane  
+- 1,1,2-Trichlorotrifluoroethane  
+- Cyclopentane  
+- Heptane  
+- Hexane  
+- Iso-Octane  
+- Petroleum Ether  
+- Cyclohexane  
+- n-Butyl Chloride  
+- Toluene  
+- Methyl t-Butyl Ether  
+- o-Xylene  
+- Chlorobenzene  
+- o-Dichlorobenzene  
+- Ethyl Ether  
+- Dichloromethane  
+- Ethylene Dichloride  
+- n-Butyl Alcohol  
+- Isopropyl Alcohol  
+- n-Butyl Acetate  
+- Isobutyl Alcohol  
+- Methyl Isoamyl Ketone  
+- n-Propyl Alcohol  
+- Tetrahydrofuran  
+- Chloroform  
+- Methyl Isobutyl Ketone  
+- Ethyl Acetate  
+- Methyl n-Propyl Ketone  
+- Methyl Ethyl Ketone  
+- 1,4-Dioxane  
+- Methanol  
+- Acetone  
+- Pyridine  
+- 2-Methoxyethanol  
+- Acetonitrile  
+- Propylene Carbonate  
+- N,N-Dimethylformamide  
+- Dimethyl Acetamide  
+- N-Methylpyrrolidone  
+- Dimethyl Sulfoxide
+             ''')
 else:
     st.write("Please enter your values")
